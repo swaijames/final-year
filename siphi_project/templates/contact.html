@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
@@ -32,7 +32,7 @@
 <div id="preloader">
     <div id="loading-center">
         <div id="loading-center-absolute">
-            <img src="img/preloader.svg" alt="">
+            <img src="{% static 'img/preloader.svg' %}" alt="">
         </div>
     </div>
 </div>
@@ -55,7 +55,7 @@
                         <nav class="menu-nav show">
                             <div class="logo">
                                 <a href="index.html">
-                                    <img src="img/logo/logo.png" alt="Logo">
+                                    <img src="{% static 'img/logo/logo.png' %}" alt="Logo">
                                 </a>
                             </div>
                             <div class="navbar-wrap main-menu d-none d-lg-flex">
@@ -96,7 +96,7 @@
                         <div class="close-btn"><i class="fas fa-times"></i></div>
 
                         <nav class="menu-box">
-                            <div class="nav-logo"><a href="index.html"><img src="img/logo/logo.png" alt="" title=""></a>
+                            <div class="nav-logo"><a href="index.html"><img src="{% static 'img/logo/logo.png' %}" alt="" title=""></a>
                             </div>
                             <div class="menu-outer">
                                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
@@ -140,7 +140,7 @@
 <main>
 
     <!-- breadcrumb-area -->
-    <section class="breadcrumb-area breadcrumb-bg" data-background="img/bg/breadcrumb_bg.jpg">
+    <section class="breadcrumb-area breadcrumb-bg" data-background="{% static 'img/bg/breadcrumb_bg.jpg' %}">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -160,7 +160,7 @@
     <!-- breadcrumb-area-end -->
 
     <!-- contact-area -->
-    <section class="contact-area contact-bg" data-background="img/bg/contact_bg.jpg">
+    <section class="contact-area contact-bg" data-background="{% static 'img/bg/contact_bg.jpg' %}">
         <div class="container">
             <div class="row">
                 <div class="col-xl-8 col-lg-7">
@@ -169,18 +169,19 @@
                             <h5 class="title">Contact Form</h5>
                         </div>
                         <div class="contact-form">
-                            <form action="#">
+                            <form action="" method="post">
+                                {% csrf_token %}
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" placeholder="You Name *">
+                                        <input type="text" name="name" placeholder="You Name *">
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="email" placeholder="You  Email *">
+                                        <input type="email" name="email" placeholder="You  Email *">
                                     </div>
                                 </div>
-                                <input type="text" placeholder="Subject *">
+                                <input type="text" name="subject" placeholder="Subject *">
                                 <textarea name="message" placeholder="Type Your Message..."></textarea>
-                                <button class="btn">Send Message</button>
+                                <button type="submit" name="submit" class="btn">Send Message</button>
                             </form>
                         </div>
                     </div>
@@ -219,11 +220,11 @@
     <!-- contact-area-end -->
 
     <!-- map -->
-    <div id="map" data-background="img/bg/map.jpg"></div>
+    <div id="map" data-background="{% static 'img/bg/map.jpg' %}"></div>
     <!-- map-end -->
 
     <!-- newsletter-area -->
-    <section class="newsletter-area newsletter-bg" data-background="img/bg/newsletter_bg.jpg">
+    <section class="newsletter-area newsletter-bg" data-background="{% static 'img/bg/newsletter_bg.jpg' %}">
         <div class="container">
             <div class="newsletter-inner-wrap">
                 <div class="row align-items-center">
