@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- CSS here -->
@@ -18,7 +19,7 @@
     <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
     <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    {#    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">#}
     <link rel="stylesheet" href="{% static 'css/odometer.css' %}">
     <link rel="stylesheet" href="{% static 'css/aos.css' %}">
     <link rel="stylesheet" href="{% static 'css/slick.css' %}">
@@ -54,18 +55,18 @@
                     <div class="menu-wrap">
                         <nav class="menu-nav show">
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="{% url 'index' %}">
                                     <img src="{% static 'img/logo/logo.png' %}" alt="Logo">
                                 </a>
                             </div>
                             <div class="navbar-wrap main-menu d-none d-lg-flex">
                                 <ul class="navigation">
-                                    <li class="menu-item-has-children"><a href="index.html">Home</a>
+                                    <li class="menu-item-has-children"><a href="{% url 'index' %}">Home</a>
                                     </li>
-                                    <li class="menu-item-has-children"><a href="movie.html">Movie</a>
+                                    <li class="menu-item-has-children"><a href="{% url 'movie' %}">Movie</a>
                                     </li>
 
-                                    <li class="active"><a href="contact.html">contacts</a></li>
+                                    <li class="active"><a href="{% url 'contact' %}">contacts</a></li>
                                 </ul>
                             </div>
                             <div class="header-action d-none d-md-block">
@@ -96,7 +97,8 @@
                         <div class="close-btn"><i class="fas fa-times"></i></div>
 
                         <nav class="menu-box">
-                            <div class="nav-logo"><a href="index.html"><img src="{% static 'img/logo/logo.png' %}" alt="" title=""></a>
+                            <div class="nav-logo"><a href="index.html"><img src="{% static 'img/logo/logo.png' %}"
+                                                                            alt="" title=""></a>
                             </div>
                             <div class="menu-outer">
                                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
@@ -148,7 +150,7 @@
                         <h2 class="title">Contact Us</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Contact</li>
                             </ol>
                         </nav>
@@ -169,19 +171,19 @@
                             <h5 class="title">Contact Form</h5>
                         </div>
                         <div class="contact-form">
-                            <form action="" method="post">
+                            <form action="{% url 'contact' %}" method="post">
                                 {% csrf_token %}
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" name="name" placeholder="You Name *">
+                                        <input type="text" name="name" placeholder="You Name *" required>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="email" name="email" placeholder="You  Email *">
+                                        <input type="email" name="email" placeholder="You  Email *" required>
                                     </div>
                                 </div>
-                                <input type="text" name="subject" placeholder="Subject *">
+                                <input type="text" name="subject" placeholder="Subject *" required>
                                 <textarea name="message" placeholder="Type Your Message..."></textarea>
-                                <button type="submit" name="submit" class="btn">Send Message</button>
+                                <input type="submit" name="submit" class="btn" value="submit">
                             </form>
                         </div>
                     </div>
@@ -258,7 +260,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3">
                         <div class="footer-logo">
-                            <a href="index.html"><img src="img/logo/logo.png" alt=""></a>
+                            <a href="{% url 'index' %}"><img src="{% static 'img/logo/logo.png' %}" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-9">
@@ -305,7 +307,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="copyright-text">
-                        <p>Copyright &copy; 2021. All Rights Reserved By <a href="index.html">Movflx</a></p>
+                        <p>Copyright &copy; 2021. All Rights Reserved By <a href="{% url 'index' %}">SwahiliFlix</a></p>
                     </div>
                 </div>
             </div>
@@ -316,7 +318,6 @@
 
 
 <!-- JS here -->
-<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script src="{% static 'js/vendor/jquery-3.6.0.min.js' %}"></script>
 <script src="{% static 'js/popper.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
@@ -334,5 +335,5 @@
 <script src="{% static 'js/main.js' %}"></script>
 </body>
 
-<!-- Mirrored from themebeyond.com/html/movflx/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 02 Apr 2022 11:56:43 GMT -->
+
 </html>

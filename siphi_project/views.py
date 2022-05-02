@@ -1,10 +1,19 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
 from django.http import HttpResponse
+from django.conf import settings
 
 
 def index(request):
     return render(request, 'index.html')
+
+
+def register(request):
+    return render(request, 'form/register.html')
+
+
+def login(request):
+    return render(request, 'form/login.html')
 
 
 def movie(request):
@@ -12,27 +21,26 @@ def movie(request):
 
 
 def contact(request):
-    if request.method == 'post':
+    if request.method == 'POST':
         name = request.POST.get('name')
         email = request.POST.get('email')
         subject = request.POST.get('subject')
-        messages = request.POST.get('messages')
+        message = request.POST.get('message')
 
         data = {
             'name': name,
             'email': email,
             'subject': subject,
-            'message': messages
+            'message': message
         }
-        print(data)
-        message = '''
-        New message:{}
-        
-        from {}
-        '''.format(data['message'], data['email'])
-        send_mail(data['subject'], message, '', ['rodgersswai69@gmail.com'])
-        return HttpResponse('thank you')
-    return render(request, 'contact.html', {})
+
+        messages = '''
+           New messages: {}
+
+           from: {}
+             '''.format(data['message'], data['email'])
+        send_mail(data['subject'], messages, '', ['swahilisinema@gmail.com'])
+    return render(request, 'contact.html')
 
 
 def movie_details(request):

@@ -7,7 +7,7 @@
     <title>Swahili - Cinema</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}" alt="logo">
     <!-- Place favicon.ico in the root directory -->
 
@@ -44,6 +44,7 @@
 <!-- Scroll-top-end-->
 
 <!-- header-area -->
+
 <header>
     <div id="sticky-header" class="menu-area transparent-header">
         <div class="container custom-container">
@@ -84,7 +85,7 @@
                                             </select>
                                         </form>
                                     </li>
-                                    <li class="header-btn"><a href="#" class="btn">Sign In</a></li>
+                                    <li class="header-btn"><a href="{% url 'register'%}" class="btn">Sign In</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -827,7 +828,7 @@
                 </div>
                 <div class="col-xl-7 col-lg-6">
                     <div class="live-movie-img wow fadeInRight" data-wow-delay=".2s" data-wow-duration="1.8s">
-                        <img src="img/images/live_img.jpg" alt="">
+                        <img src="{% static 'img/images/live_img.jpg' %}" alt="">
                     </div>
                 </div>
             </div>
@@ -1029,7 +1030,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="copyright-text">
-                        <p>Copyright &copy; 2021. All Rights Reserved By <a href="index.html">Movflx</a></p>
+                        <p>Copyright &copy; 2022. All Rights Reserved By <a href="{% url 'index' %}">SwahiliFlix</a></p>
                     </div>
                 </div>
 
