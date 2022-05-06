@@ -24,14 +24,14 @@
 </head>
 <body>
 	<!-- sign in -->
-	<div class="sign section--bg" data-bg="img/bg.jpg">
+	<div class="sign section--bg" data-bg="{% static 'img/bg.jpg' %}">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
 					<div class="sign__content">
 						<!-- authorization form -->
 						<form action="#" class="sign__form">
-							<a href="index.html" class="sign__logo">
+							<a href="{% url 'index' %}" class="sign__logo">
 								<img src="{% static 'img/logo/logo.png' %}" alt="logo">
 							</a>
 

@@ -2048,7 +2048,7 @@ body::-webkit-scrollbar-thumb {
 }
 .sign__input:focus {
   background-color: #151f30;
-  border-color: #2f80ed;
+  border-color: #e4d804;
 }
 .sign__textarea {
   background-color: #151f30;
@@ -2064,7 +2064,7 @@ body::-webkit-scrollbar-thumb {
 }
 .sign__textarea:focus {
   background-color: #151f30;
-  border-color: #2f80ed;
+  border-color: #e4d804;
 }
 .sign__group {
   position: relative;
@@ -2093,11 +2093,11 @@ body::-webkit-scrollbar-thumb {
 }
 .sign__group--checkbox input:not(:checked) + label a,
 .sign__group--checkbox input:checked + label a {
-  color: #2f80ed;
+  color: #e4d804;
 }
 .sign__group--checkbox input:not(:checked) + label a:hover,
 .sign__group--checkbox input:checked + label a:hover {
-  color: #2f80ed;
+  color: #e4d804;
   text-decoration: underline;
 }
 .sign__group--checkbox input:not(:checked) + label:before,
@@ -2150,7 +2150,8 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   height: 50px;
   border-radius: 16px;
-  background-color: #2f80ed;
+  background-color: transparent;
+  border-color: #e4d804;
   font-size: 14px;
   color: #e0e0e0;
   text-transform: uppercase;
@@ -2158,7 +2159,7 @@ body::-webkit-scrollbar-thumb {
 }
 .sign__btn:hover {
   color: #151f30;
-  background-color: #fff;
+  background-color: #e4d804;
 }
 .sign__text {
   margin-top: 15px;
@@ -2167,10 +2168,10 @@ body::-webkit-scrollbar-thumb {
 }
 .sign__text a {
   position: relative;
-  color: #2f80ed;
+  color: #e4d804;
 }
 .sign__text a:hover {
-  color: #2f80ed;
+  color: #e4d804;
   text-decoration: underline;
 }
 .sign__delimiter {

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Swahili - Cinema</title>
+    <title>SwahiliFlx</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
@@ -54,7 +54,7 @@
                     <div class="menu-wrap">
                         <nav class="menu-nav show">
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="{% url 'index' %}">
                                     <img src="{% static 'img/logo/logo.png' %}" alt="Logo">
                                 </a>
                             </div>
@@ -146,9 +146,8 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-8">
                     <div class="banner-content">
-                        <h6 class="sub-title wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1.8s">Movflx</h6>
-                        <h2 class="title wow fadeInUp" data-wow-delay=".4s" data-wow-duration="1.8s">Unlimited <span>Movie</span>,
-                            TVs Shows, & More.</h2>
+                        <h6 class="sub-title wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1.8s">SwahiliFlx</h6>
+                        <h2 class="title wow fadeInUp" data-wow-delay=".4s" data-wow-duration="1.8s"> Get Free Unlimited, <span>Movie</span></h2>
                         <div class="banner-meta wow fadeInUp" data-wow-delay=".6s" data-wow-duration="1.8s">
                             <ul>
                                 <li class="quality">
@@ -555,9 +554,8 @@
                             <span class="sub-title">Our Services</span>
                             <h2 class="title">Download Your Movie To Watch Offline.</h2>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consecetur adipiscing elseddo eiusmod tempor.There are many
-                            variations of passages of lorem
-                            Ipsum available, but the majority have suffered alteration in some injected humour.</p>
+                        <p>Enjoy unlimited downloads of over 400,000 premium movies with SwahiliFlx subscription.
+                            All tracks come with commercial licenses and are ready for you to enjoy.</p>
                         <div class="services-list">
                             <ul>
                                 <li>
@@ -565,9 +563,8 @@
                                         <i class="flaticon-television"></i>
                                     </div>
                                     <div class="content">
-                                        <h5>Enjoy on Your TV.</h5>
-                                        <p>Lorem ipsum dolor sit amet, consecetur adipiscing elit, sed do eiusmod
-                                            tempor.</p>
+                                        <h5>Enjoy on Your Stream.</h5>
+                                        <p>Now you may stream movies where you are through SwahiliFlx</p>
                                     </div>
                                 </li>
                                 <li>
@@ -576,8 +573,7 @@
                                     </div>
                                     <div class="content">
                                         <h5>Watch Everywhere.</h5>
-                                        <p>Lorem ipsum dolor sit amet, consecetur adipiscing elit, sed do eiusmod
-                                            tempor.</p>
+                                        <p> Now SwahiliFlx is everywhere you are, you need to subscribe our site to get more updates</p>
                                     </div>
                                 </li>
                             </ul>
@@ -603,10 +599,11 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="tr-movie-menu-active text-center">
-                        <button class="active" data-filter="*">Popular</button>
-                        <button class="" data-filter=".cat-one">Movies</button>
-                        <button class="" data-filter=".cat-two">documentary</button>
-                        <button class="" data-filter=".cat-three">sports</button>
+                        <button class="active" data-filter="*">Movies</button>
+                        <button class="" data-filter=".cat-one">Comedy</button>
+                        <button class="" data-filter=".cat-two">Drama</button>
+                        <button class="" data-filter=".cat-three">Action</button>
+                        <button class="" data-filter=".cat-three">Horror</button>
                     </div>
                 </div>
             </div>
@@ -810,8 +807,8 @@
                                 <h2 class="title">Live Movie Stream With Your Friends & Family</h2>
                             </div>
                             <div class="live-movie-content">
-                                <p>Lorem ipsum dolor sit amet, consecetur adipiscing elseddo eiusmod There are many variations of passages of lorem Ipsum
-                                available, but the majority have suffered alteration.</p>
+                                <p>Let's stream movie with your friends & families to enjoy your mood and refresh minds
+                                for watching movies in Swahiliflx</p>
                                 <div class="live-fact-wrap">
                                     <div class="resolution">
                                         <h2>HD 4K</h2>
@@ -950,7 +947,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="newsletter-content">
-                            <h4>Get Free Start Online Movie.</h4>
+                            <h4>Get Start Online Movie.</h4>
                             <p>Enter your email to create your membership.</p>
                         </div>
                     </div>
@@ -1028,7 +1025,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="copyright-text">
-                        <p>Copyright &copy; 2022. All Rights Reserved By <a href="{% url 'index' %}">SwahiliFlix</a></p>
+                        <p>Copyright &copy; 2022. All Rights Reserved By <a href="{% url 'index' %}">SwahiliFlx</a></p>
                     </div>
                 </div>
 

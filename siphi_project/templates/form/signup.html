@@ -24,32 +24,31 @@
 </head>
 <body>
 <!-- sign in -->
-<div class="sign section--bg" data-bg="img/bg.jpg">
+<div class="sign section--bg" data-bg="{% static 'img/bg.jpg' %}">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="sign__content">
                     <!-- registration form -->
-                    <form action="#" method="post" class="sign__form">
-                        {% csrf_token %}
-                        <a href="index.html" class="sign__logo">
+                    <form action="#" class="sign__form">
+                        <a href="{% url 'index' %}" class="sign__logo">
                             <img src="{% static 'img/logo/logo.png' %}" alt="logo">
                         </a>
 
                         <div class="sign__group">
-                            <input type="text" name="name" class="sign__input" placeholder="Name">
+                            <input type="text" class="sign__input" placeholder="Name">
                         </div>
 
                         <div class="sign__group">
-                            <input type="email" name="email" class="sign__input" placeholder="Email">
+                            <input type="text" class="sign__input" placeholder="Email">
                         </div>
 
                         <div class="sign__group">
-                            <input type="password1" name="password1" class="sign__input" placeholder="Password">
+                            <input type="password" class="sign__input" placeholder="Password">
                         </div>
 
                         <div class="sign__group">
-                            <input type="password2" name="password2" class="sign__input" placeholder="Confirm Password">
+                            <input type="password" class="sign__input" placeholder="Comfirm Password">
                         </div>
 
                         <div class="sign__group sign__group--checkbox">
@@ -57,7 +56,7 @@
                             <label for="remember">I agree to the <a href="#">Privacy policy</a></label>
                         </div>
 
-                        <input name="submit" class="sign__btn" value="Sign In" type="submit">
+                        <button class="sign__btn" type="button">Sign up</button>
 
                         <span class="sign__delimiter">or</span>
 
