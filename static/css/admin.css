@@ -2048,7 +2048,7 @@ body::-webkit-scrollbar-thumb {
 }
 .sign__input:focus {
   background-color: #151f30;
-  border-color: #2f80ed;
+  border-color: #e4d804;
 }
 .sign__textarea {
   background-color: #151f30;
@@ -2064,7 +2064,7 @@ body::-webkit-scrollbar-thumb {
 }
 .sign__textarea:focus {
   background-color: #151f30;
-  border-color: #2f80ed;
+  border-color: #e4d804;
 }
 .sign__group {
   position: relative;
@@ -2150,15 +2150,15 @@ body::-webkit-scrollbar-thumb {
   width: 100%;
   height: 50px;
   border-radius: 16px;
-  background-color: #2f80ed;
+  background-color: transparent !important;
   font-size: 14px;
   color: #e0e0e0;
   text-transform: uppercase;
   font-weight: 500;
 }
 .sign__btn:hover {
-  color: #151f30;
-  background-color: #fff;
+  color: #000000;
+  background-color: #e4d804;
 }
 .sign__text {
   margin-top: 15px;
@@ -2167,10 +2167,10 @@ body::-webkit-scrollbar-thumb {
 }
 .sign__text a {
   position: relative;
-  color: #2f80ed;
+  color: #e4d804;
 }
 .sign__text a:hover {
-  color: #2f80ed;
+  color: #e4d804;
   text-decoration: underline;
 }
 .sign__delimiter {
