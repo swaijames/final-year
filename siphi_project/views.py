@@ -8,12 +8,16 @@ def index(request):
     return render(request, 'index.html')
 
 
-def register(request):
-    return render(request, 'form/register.html')
+def signup(request):
+    return render(request, 'form/signup.html')
 
 
-def login(request):
-    return render(request, 'form/login.html')
+def signin(request):
+    return render(request, 'form/signin.html')
+
+
+def forgot(request):
+    return render(request, 'form/forgot.html')
 
 
 def movie(request):

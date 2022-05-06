@@ -85,7 +85,7 @@
                                             </select>
                                         </form>
                                     </li>
-                                    <li class="header-btn"><a href="{% url 'register'%}" class="btn">Sign In</a></li>
+                                    <li class="header-btn"><a href="{% url 'signin'%}" class="btn">Sign In</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -539,7 +539,7 @@
     <!-- up-coming-movie-area-end -->
 
     <!-- services-area -->
-    <section class="services-area services-bg" data-background="img/bg/services_bg.jpg">
+    <section class="services-area services-bg" data-background="{% static 'img/bg/services_bg.jpg' %}">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
@@ -553,7 +553,7 @@
                     <div class="services-content-wrap">
                         <div class="section-title title-style-two mb-20">
                             <span class="sub-title">Our Services</span>
-                            <h2 class="title">Download Your Shows Watch Offline.</h2>
+                            <h2 class="title">Download Your Movie To Watch Offline.</h2>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consecetur adipiscing elseddo eiusmod tempor.There are many
                             variations of passages of lorem
@@ -800,41 +800,39 @@
     </section>
     <!-- top-rated-movie-end -->
 
-    <!-- live-area -->
-    <section class="live-area live-bg fix" data-background="{% static 'img/bg/live_bg.jpg' %}">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-5 col-lg-6">
-                    <div class="section-title title-style-two mb-25">
-                        <span class="sub-title">ONLINE STREAMING</span>
-                        <h2 class="title">Live Movie Stream With Your Friends & Family</h2>
-                    </div>
-                    <div class="live-movie-content">
-                        <p>Lorem ipsum dolor sit amet, consecetur adipiscing elseddo eiusmod There are many variations
-                            of passages of lorem Ipsum
-                            available, but the majority have suffered alteration.</p>
-                        <div class="live-fact-wrap">
-                            <div class="resolution">
-                                <h2>HD 4K</h2>
+            <!-- live-area -->
+            <section class="live-area live-bg fix" data-background="{% static 'img/bg/live_bg.jpg' %}">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-5 col-lg-6">
+                            <div class="section-title title-style-two mb-25">
+                                <span class="sub-title">ONLINE STREAMING</span>
+                                <h2 class="title">Live Movie Stream With Your Friends & Family</h2>
                             </div>
-                            <div class="active-customer">
-                                <h4><span class="odometer" data-count="20"></span>K+</h4>
-                                <p>Active Customer</p>
+                            <div class="live-movie-content">
+                                <p>Lorem ipsum dolor sit amet, consecetur adipiscing elseddo eiusmod There are many variations of passages of lorem Ipsum
+                                available, but the majority have suffered alteration.</p>
+                                <div class="live-fact-wrap">
+                                    <div class="resolution">
+                                        <h2>HD 4K</h2>
+                                    </div>
+                                    <div class="active-customer">
+                                        <h4><span class="odometer" data-count="20"></span>K+</h4>
+                                        <p>Active Customer</p>
+                                    </div>
+                                </div>
+                                <a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="btn popup-video"><i class="fas fa-play"></i> Watch Now</a>
                             </div>
                         </div>
-                        <a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="btn popup-video"><i
-                                class="fas fa-play"></i> Watch Now</a>
+                        <div class="col-xl-7 col-lg-6">
+                            <div class="live-movie-img wow fadeInRight" data-wow-delay=".2s" data-wow-duration="1.8s">
+                                <img src="{% static 'img/images/live_img.png' %}" alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-xl-7 col-lg-6">
-                    <div class="live-movie-img wow fadeInRight" data-wow-delay=".2s" data-wow-duration="1.8s">
-                        <img src="{% static 'img/images/live_img.jpg' %}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- live-area-end -->
+            </section>
+            <!-- live-area-end -->
 
     <!-- tv-series-area -->
     <section class="tv-series-area tv-series-bg" data-background="{% static 'img/bg/tv_series_bg.jpg' %}">
@@ -974,7 +972,7 @@
 
 <!-- footer-area -->
 <footer>
-    <div class="footer-top-wrap">
+    <div class="footer-top-wrap" data-background="{% static 'img/bg/footer_bg.jpg' %}">
         <div class="container">
             <div class="footer-menu-wrap">
                 <div class="row align-items-center">

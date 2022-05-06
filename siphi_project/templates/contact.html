@@ -86,7 +86,7 @@
                                             </select>
                                         </form>
                                     </li>
-                                    <li class="header-btn"><a href="#" class="btn">Sign In</a></li>
+                                    <li class="header-btn"><a href="{% url 'signin'%}" class="btn">Sign In</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -254,7 +254,7 @@
 
 <!-- footer-area -->
 <footer>
-    <div class="footer-top-wrap">
+    <div class="footer-top-wrap" data-background="{% static 'img/bg/footer_bg.jpg' %}">
         <div class="container">
             <div class="footer-menu-wrap">
                 <div class="row align-items-center">
