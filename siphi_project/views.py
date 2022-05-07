@@ -3,6 +3,13 @@ from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.conf import settings
 from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+
+from .models import *
+from .forms import UserCreationForm
+
+
+# from .filters import OrderFilter
 
 
 def index(request):
@@ -10,6 +17,13 @@ def index(request):
 
 
 def signup(request):
+    form = UserCreationForm()
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    context = {'form': form}
     return render(request, 'form/signup.html')
 
 
