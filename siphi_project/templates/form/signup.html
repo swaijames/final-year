@@ -30,17 +30,14 @@
             <div class="col-12">
                 <div class="sign__content">
                     <!-- registration form -->
-                    <form action="" method="POST" class="sign__form">
+                    <form action="" method ="POST" enctype="multipart/form" class="sign__form">
                         {% csrf_token %}
                         <a href="{% url 'index' %}" class="sign__logo">
                             <img src="{% static 'img/logo/logo.png' %}" alt="logo">
                         </a>
 
                         <div class="sign__group">
-                            <label for="sign__">
-                                username
-                            </label>
-                            {{ form.username }}
+                            <input type="text" name="username" class="sign__input" placeholder="Name" required>
                         </div>
 
                         <div class="sign__group">
