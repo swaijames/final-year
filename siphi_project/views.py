@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.conf import settings
+from django.contrib import messages
 
 
 def index(request):
@@ -38,12 +39,13 @@ def contact(request):
             'message': message
         }
 
-        messages = '''
+        messager = '''
            New messages: {}
 
            from: {}
              '''.format(data['message'], data['email'])
-        send_mail(data['subject'], messages, '', ['swahilisinema@gmail.com'])
+        send_mail(data['subject'], messager, '', ['swahilisinema@gmail.com'])
+        messages.success(request, "data sent to email")
     return render(request, 'contact.html')
 
 

@@ -86,7 +86,7 @@
                                             </select>
                                         </form>
                                     </li>
-                                    <li class="header-btn"><a href="{% url 'signin'%}" class="btn">Sign In</a></li>
+                                    <li class="header-btn"><a href="{% url 'signin' %}" class="btn">Sign In</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -169,6 +169,14 @@
                     <div class="contact-form-wrap">
                         <div class="widget-title mb-50">
                             <h5 class="title">Contact Form</h5>
+                            {% for msg in messages %}
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong>Hello!</strong> {{ msg }}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            {% endfor %}
                         </div>
                         <div class="contact-form">
                             <form action="{% url 'contact' %}" method="post">
