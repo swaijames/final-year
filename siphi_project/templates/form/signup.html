@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{% static 'css/select2.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/admin.css' %}">
 
+
     <!-- Favicons -->
     <link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}" sizes="32x32">
     <link rel="apple-touch-icon" href="{% static 'img/favicon.png' %}">
@@ -30,14 +31,39 @@
             <div class="col-12">
                 <div class="sign__content">
                     <!-- registration form -->
-                    <form action="" method ="POST" enctype="multipart/form" class="sign__form">
+                    <form action="" method="post" class="sign__form">
+
                         {% csrf_token %}
+
                         <a href="{% url 'index' %}" class="sign__logo">
                             <img src="{% static 'img/logo/logo.png' %}" alt="logo">
                         </a>
 
+                        {% for msges in messages %}
+
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <p style="color:white"><strong>Hello!</strong>
+                                    {{ msges }}</p>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                        {% endfor %}
+
+
+
                         <div class="sign__group">
-                            <input type="text" name="username" class="sign__input" placeholder="Name" required>
+                            <input type="text" name="fname" class="sign__input" placeholder="first Name" required>
+                        </div>
+
+                        <div class="sign__group">
+                            <input type="text" name="lname" class="sign__input" placeholder="last Name" required>
+                        </div>
+
+
+                        <div class="sign__group">
+                            <input type="text" name="username" class="sign__input" placeholder="username" required>
                         </div>
 
                         <div class="sign__group">
@@ -85,6 +111,7 @@
                     </form>
                     <!-- registration form -->
                 </div>
+
             </div>
         </div>
     </div>

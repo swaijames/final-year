@@ -7,7 +7,7 @@
     <title>SwahiliFlx</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}" alt="logo">
     <!-- Place favicon.ico in the root directory -->
 
@@ -44,8 +44,8 @@
 <!-- Scroll-top-end-->
 
 <!-- header-area -->
-
 <header>
+
     <div id="sticky-header" class="menu-area transparent-header">
         <div class="container custom-container">
             <div class="row">
@@ -85,12 +85,18 @@
                                             </select>
                                         </form>
                                     </li>
-                                    <li class="header-btn"><a href="{% url 'signin'%}" class="btn">Sign In</a></li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-
+                                    {% if user.is_authenticated %}
+                                        <li class="menu-item-has-children"><a href="{% url 'signout' %}">sign out</a>
+                                        </li>
+                                        <li class="menu-item-has-children">welcome {{ fname }}
+                                        </li>
+                                    {% else %}
+                                        <li class="header-btn"><a href="{% url 'signin' %}" class="btn">Sign In</a></li>
+                                        </ul>
+                                        </div>
+                                        </nav>
+                                        </div>
+                                    {% endif %}
                     <!-- Mobile Menu  -->
                     <div class="mobile-menu">
                         <div class="close-btn"><i class="fas fa-times"></i></div>
@@ -147,7 +153,8 @@
                 <div class="col-xl-6 col-lg-8">
                     <div class="banner-content">
                         <h6 class="sub-title wow fadeInUp" data-wow-delay=".2s" data-wow-duration="1.8s">SwahiliFlx</h6>
-                        <h2 class="title wow fadeInUp" data-wow-delay=".4s" data-wow-duration="1.8s"> Get Free Unlimited, <span>Movie</span></h2>
+                        <h2 class="title wow fadeInUp" data-wow-delay=".4s" data-wow-duration="1.8s"> Get Free
+                            Unlimited, <span>Movie</span></h2>
                         <div class="banner-meta wow fadeInUp" data-wow-delay=".6s" data-wow-duration="1.8s">
                             <ul>
                                 <li class="quality">
@@ -210,7 +217,7 @@
                         <div class="movie-item mb-50">
                             <div class="movie-poster">
                                 <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster01.jpg' %}"
-                                                                  alt=""></a>
+                                                                        alt=""></a>
                             </div>
                             <div class="movie-content">
                                 <div class="top">
@@ -231,7 +238,7 @@
                         <div class="movie-item mb-50">
                             <div class="movie-poster">
                                 <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster02.jpg' %}"
-                                                                  alt=""></a>
+                                                                        alt=""></a>
                             </div>
                             <div class="movie-content">
                                 <div class="top">
@@ -252,7 +259,7 @@
                         <div class="movie-item mb-50">
                             <div class="movie-poster">
                                 <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster03.jpg' %}"
-                                                                  alt=""></a>
+                                                                        alt=""></a>
                             </div>
                             <div class="movie-content">
                                 <div class="top">
@@ -273,7 +280,7 @@
                         <div class="movie-item mb-50">
                             <div class="movie-poster">
                                 <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster04.jpg' %}"
-                                                                  alt=""></a>
+                                                                        alt=""></a>
                             </div>
                             <div class="movie-content">
                                 <div class="top">
@@ -294,7 +301,7 @@
                         <div class="movie-item mb-50">
                             <div class="movie-poster">
                                 <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster05.jpg' %}"
-                                                                  alt=""></a>
+                                                                        alt=""></a>
                             </div>
                             <div class="movie-content">
                                 <div class="top">
@@ -319,7 +326,7 @@
                         <div class="movie-item mb-50">
                             <div class="movie-poster">
                                 <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster05.jpg' %}"
-                                                                  alt=""></a>
+                                                                        alt=""></a>
                             </div>
                             <div class="movie-content">
                                 <div class="top">
@@ -340,7 +347,7 @@
                         <div class="movie-item mb-50">
                             <div class="movie-poster">
                                 <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster06.jpg' %}"
-                                                                  alt=""></a>
+                                                                        alt=""></a>
                             </div>
                             <div class="movie-content">
                                 <div class="top">
@@ -361,7 +368,7 @@
                         <div class="movie-item mb-50">
                             <div class="movie-poster">
                                 <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster07.jpg' %}"
-                                                                  alt=""></a>
+                                                                        alt=""></a>
                             </div>
                             <div class="movie-content">
                                 <div class="top">
@@ -382,7 +389,7 @@
                         <div class="movie-item mb-50">
                             <div class="movie-poster">
                                 <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster08.jpg' %}"
-                                                                  alt=""></a>
+                                                                        alt=""></a>
                             </div>
                             <div class="movie-content">
                                 <div class="top">
@@ -403,7 +410,7 @@
                         <div class="movie-item mb-50">
                             <div class="movie-poster">
                                 <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster03.jpg' %}"
-                                                                  alt=""></a>
+                                                                        alt=""></a>
                             </div>
                             <div class="movie-content">
                                 <div class="top">
@@ -428,7 +435,7 @@
                         <div class="movie-item mb-50">
                             <div class="movie-poster">
                                 <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster01.jpg' %}"
-                                                                  alt=""></a>
+                                                                        alt=""></a>
                             </div>
                             <div class="movie-content">
                                 <div class="top">
@@ -449,7 +456,7 @@
                         <div class="movie-item mb-50">
                             <div class="movie-poster">
                                 <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster02.jpg' %}"
-                                                                  alt=""></a>
+                                                                        alt=""></a>
                             </div>
                             <div class="movie-content">
                                 <div class="top">
@@ -470,7 +477,7 @@
                         <div class="movie-item mb-50">
                             <div class="movie-poster">
                                 <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster03.jpg' %}"
-                                                                  alt=""></a>
+                                                                        alt=""></a>
                             </div>
                             <div class="movie-content">
                                 <div class="top">
@@ -491,7 +498,7 @@
                         <div class="movie-item mb-50">
                             <div class="movie-poster">
                                 <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster04.jpg' %}"
-                                                                  alt=""></a>
+                                                                        alt=""></a>
                             </div>
                             <div class="movie-content">
                                 <div class="top">
@@ -512,7 +519,7 @@
                         <div class="movie-item mb-50">
                             <div class="movie-poster">
                                 <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster05.jpg' %}"
-                                                                  alt=""></a>
+                                                                        alt=""></a>
                             </div>
                             <div class="movie-content">
                                 <div class="top">
@@ -573,7 +580,8 @@
                                     </div>
                                     <div class="content">
                                         <h5>Watch Everywhere.</h5>
-                                        <p> Now SwahiliFlx is everywhere you are, you need to subscribe our site to get more updates</p>
+                                        <p> Now SwahiliFlx is everywhere you are, you need to subscribe our site to get
+                                            more updates</p>
                                     </div>
                                 </li>
                             </ul>
@@ -797,39 +805,40 @@
     </section>
     <!-- top-rated-movie-end -->
 
-            <!-- live-area -->
-            <section class="live-area live-bg fix" data-background="{% static 'img/bg/live_bg.jpg' %}">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-xl-5 col-lg-6">
-                            <div class="section-title title-style-two mb-25">
-                                <span class="sub-title">ONLINE STREAMING</span>
-                                <h2 class="title">Live Movie Stream With Your Friends & Family</h2>
+    <!-- live-area -->
+    <section class="live-area live-bg fix" data-background="{% static 'img/bg/live_bg.jpg' %}">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-5 col-lg-6">
+                    <div class="section-title title-style-two mb-25">
+                        <span class="sub-title">ONLINE STREAMING</span>
+                        <h2 class="title">Live Movie Stream With Your Friends & Family</h2>
+                    </div>
+                    <div class="live-movie-content">
+                        <p>Let's stream movie with your friends & families to enjoy your mood and refresh minds
+                            for watching movies in Swahiliflx</p>
+                        <div class="live-fact-wrap">
+                            <div class="resolution">
+                                <h2>HD 4K</h2>
                             </div>
-                            <div class="live-movie-content">
-                                <p>Let's stream movie with your friends & families to enjoy your mood and refresh minds
-                                for watching movies in Swahiliflx</p>
-                                <div class="live-fact-wrap">
-                                    <div class="resolution">
-                                        <h2>HD 4K</h2>
-                                    </div>
-                                    <div class="active-customer">
-                                        <h4><span class="odometer" data-count="20"></span>K+</h4>
-                                        <p>Active Customer</p>
-                                    </div>
-                                </div>
-                                <a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="btn popup-video"><i class="fas fa-play"></i> Watch Now</a>
+                            <div class="active-customer">
+                                <h4><span class="odometer" data-count="20"></span>K+</h4>
+                                <p>Active Customer</p>
                             </div>
                         </div>
-                        <div class="col-xl-7 col-lg-6">
-                            <div class="live-movie-img wow fadeInRight" data-wow-delay=".2s" data-wow-duration="1.8s">
-                                <img src="{% static 'img/images/live_img.png' %}" alt="">
-                            </div>
-                        </div>
+                        <a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="btn popup-video"><i
+                                class="fas fa-play"></i> Watch Now</a>
                     </div>
                 </div>
-            </section>
-            <!-- live-area-end -->
+                <div class="col-xl-7 col-lg-6">
+                    <div class="live-movie-img wow fadeInRight" data-wow-delay=".2s" data-wow-duration="1.8s">
+                        <img src="{% static 'img/images/live_img.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- live-area-end -->
 
     <!-- tv-series-area -->
     <section class="tv-series-area tv-series-bg" data-background="{% static 'img/bg/tv_series_bg.jpg' %}">

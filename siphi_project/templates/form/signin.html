@@ -36,12 +36,24 @@
                             <img src="{% static 'img/logo/logo.png' %}" alt="logo">
                         </a>
 
+                        {% for msges in messages %}
+
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <p style="color:white"><strong>Hello!</strong>
+                                    {{ msges }}</p>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                        {% endfor %}
+
                         <div class="sign__group">
-                            <input type="email" name="email" class="sign__input" placeholder="Email">
+                            <input type="text" name="username" class="sign__input" placeholder="username" required>
                         </div>
 
                         <div class="sign__group">
-                            <input type="password" name="password" class="sign__input" placeholder="Password">
+                            <input type="password" name="password" class="sign__input" placeholder="Password" required>
                         </div>
 
                         <div class="sign__group sign__group--checkbox">
