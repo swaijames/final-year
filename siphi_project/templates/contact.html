@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Swahili - Sinema</title>
+    <title>Swahiliflx</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -67,6 +67,7 @@
                                     </li>
 
                                     <li class="active"><a href="{% url 'contact' %}">contacts</a></li>
+                                    <li><a href="{% url 'contact' %}">About us</a></li>
                                 </ul>
                             </div>
                             <div class="header-action d-none d-md-block">
@@ -97,7 +98,7 @@
                         <div class="close-btn"><i class="fas fa-times"></i></div>
 
                         <nav class="menu-box">
-                            <div class="nav-logo"><a href="index.html"><img src="{% static 'img/logo/logo.png' %}"
+                            <div class="nav-logo"><a href="{% url 'index' %}"><img src="{% static 'img/logo/logo.png' %}"
                                                                             alt="" title=""></a>
                             </div>
                             <div class="menu-outer">
@@ -201,23 +202,23 @@
                         <h5 class="title">Information</h5>
                     </div>
                     <div class="contact-info-wrap">
-                        <p><span>Find solutions :</span> to common problems, or get help from a support agent industry's
+                        <p><span>Find solutions :</span> to common problems, or get help from a support agent
                             standard .</p>
                         <div class="contact-info-list">
                             <ul>
                                 <li>
                                     <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-                                    <p><span>Address :</span> W38 Park Road New York</p>
+                                    <p><span>Address :</span>11101 Dar Es Salaam Tanzania</p>
                                 </li>
                                 <li>
                                     <div class="icon"><i class="fas fa-phone-alt"></i></div>
-                                    <p><span>Phone :</span> (09) 123 854 365</p>
+                                    <p><span>Phone :</span> +255 712 343 287</p>
                                 </li>
                                 <li>
                                     <div class="icon"><i class="fas fa-envelope"></i></div>
                                     <p><span>Email :</span> <a href="https://themebeyond.com/cdn-cgi/l/email-protection"
                                                                class="__cf_email__"
-                                                               data-cfemail="92e1e7e2e2fde0e6d2fffde4f4feeabcf1fdff">[email&#160;protected]</a>
+                                                               data-cfemail="92e1e7e2e2fde0e6d2fffde4f4feeabcf1fdff">swahiliflx@gmail</a>
                                     </p>
                                 </li>
                             </ul>
@@ -239,8 +240,8 @@
             <div class="newsletter-inner-wrap">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <div class="newsletter-content">
-                            <h4>Get Free Start Online Movie.</h4>
+                         <div class="newsletter-content">
+                            <h4>Get Start Online Movie.</h4>
                             <p>Enter your email to create your membership.</p>
                         </div>
                     </div>
@@ -315,7 +316,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="copyright-text">
-                        <p>Copyright &copy; 2021. All Rights Reserved By <a href="{% url 'index' %}">SwahiliFlix</a></p>
+                        <p>Copyright &copy; 2022. All Rights Reserved By <a href="{% url 'index' %}">SwahiliFlix</a></p>
                     </div>
                 </div>
             </div>

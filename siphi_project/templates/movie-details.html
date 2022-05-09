@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Swahili - Sinema</title>
+    <title>Swahiliflx</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
@@ -66,6 +66,7 @@
 
                                     </li>
                                     <li><a href="{% url 'contact' %}">contacts</a></li>
+                                    <li><a href="{% url 'contact' %}">About us</a></li>
                                 </ul>
                             </div>
                             <div class="header-action d-none d-md-block">
@@ -184,7 +185,7 @@
                             </div>
                         </div>
                         <div class="movie-details-btn">
-                            <a href="img/poster/movie_details_img.jpg" class="download-btn" download="">Download <img src="fonts/download.svg" alt=""></a>
+                            <a href="{% static 'img/poster/movie_details_img.jpg' %}" class="download-btn" download="">Download <img src="{% static 'fonts/download.svg' %}" alt=""></a>
                         </div>
                     </div>
                 </div>
@@ -192,7 +193,7 @@
             <!-- movie-details-area-end -->
 
             <!-- episode-area -->
-            <section class="episode-area episode-bg" data-background="img/bg/episode_bg.jpg">
+            <section class="episode-area episode-bg" data-background="{% static 'img/bg/episode_bg.jpg' %}">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-8">
@@ -255,7 +256,7 @@
                         </div>
                         <div class="col-lg-4">
                             <div class="episode-img">
-                                <img src="img/images/episode_img.jpg" alt="">
+                                <img src="{% static 'img/images/episode_img.jpg' %}" alt="">
                             </div>
                         </div>
                     </div>
@@ -278,7 +279,7 @@
             <!-- episode-area-end -->
 
             <!-- tv-series-area -->
-            <section class="tv-series-area tv-series-bg" data-background="img/bg/tv_series_bg02.jpg">
+            <section class="tv-series-area tv-series-bg" data-background="{% static 'img/bg/tv_series_bg02.jpg' %}">
                 <div class="container">
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
@@ -292,7 +293,7 @@
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="movie-item mb-50">
                                 <div class="movie-poster">
-                                    <a href="movie-details.html"><img src="img/poster/ucm_poster09.jpg" alt=""></a>
+                                    <a href="movie-details.html"><img src="{% static 'img/poster/ucm_poster09.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="movie-content">
                                     <div class="top">
@@ -314,7 +315,7 @@
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="movie-item mb-50">
                                 <div class="movie-poster">
-                                    <a href="movie-details.html"><img src="img/poster/ucm_poster10.jpg" alt=""></a>
+                                    <a href="movie-details.html"><img src="{% static 'img/poster/ucm_poster10.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="movie-content">
                                     <div class="top">
@@ -336,7 +337,7 @@
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="movie-item mb-50">
                                 <div class="movie-poster">
-                                    <a href="movie-details.html"><img src="img/poster/ucm_poster03.jpg" alt=""></a>
+                                    <a href="movie-details.html"><img src="{% static 'img/poster/ucm_poster03.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="movie-content">
                                     <div class="top">
@@ -358,7 +359,7 @@
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="movie-item mb-50">
                                 <div class="movie-poster">
-                                    <a href="movie-details.html"><img src="img/poster/ucm_poster04.jpg" alt=""></a>
+                                    <a href="movie-details.html"><img src="{% static 'img/poster/ucm_poster04.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="movie-content">
                                     <div class="top">
@@ -383,15 +384,15 @@
             <!-- tv-series-area-end -->
 
             <!-- newsletter-area -->
-            <section class="newsletter-area newsletter-bg" data-background="img/bg/newsletter_bg.jpg">
+            <section class="newsletter-area newsletter-bg" data-background="{% static 'img/bg/newsletter_bg.jpg' %}">
                 <div class="container">
                     <div class="newsletter-inner-wrap">
                         <div class="row align-items-center">
                             <div class="col-lg-6">
                                 <div class="newsletter-content">
-                                    <h4>Get Free Start Online Movie.</h4>
-                                    <p>Enter your email to create your membership.</p>
-                                </div>
+                            <h4>Get Start Online Movie.</h4>
+                            <p>Enter your email to create your membership.</p>
+                        </div>
                             </div>
                             <div class="col-lg-6">
                                 <form action="#" class="newsletter-form">
@@ -417,16 +418,16 @@
                         <div class="row align-items-center">
                             <div class="col-lg-3">
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="img/logo/logo.png" alt=""></a>
+                                    <a href="index.html"><img src="{% static 'img/logo/logo.png' %}" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-lg-9">
                                 <div class="footer-menu">
                                     <nav>
                                         <ul class="navigation">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="index.html">Movie</a></li>
-                                            <li><a href="index.html">pages</a></li>
+                                            <li><a href="{% url 'index' %}">Home</a></li>
+                                            <li><a href="{% url 'movie' %}">Movie</a></li>
+                                            <li><a href="{% url 'index' %}">pages</a></li>
                                         </ul>
                                     <nav> 
                                         <div class="footer-search">
@@ -471,7 +472,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
                             <div class="copyright-text">
-                                <p>Copyright &copy; 2021. All Rights Reserved By <a href="index.html">Movflx</a></p>
+                                <p>Copyright &copy; 2022. All Rights Reserved By <a href="index.html">SwahiliFlx</a></p>
                             </div>
                         </div>
                   
@@ -486,22 +487,21 @@
 
 
 		<!-- JS here -->
-        <script src="js/vendor/jquery-3.6.0.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/isotope.pkgd.min.js"></script>
-        <script src="js/imagesloaded.pkgd.min.js"></script>
-        <script src="js/jquery.magnific-popup.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/jquery.odometer.min.js"></script>
-        <script src="js/jquery.appear.js"></script>
-        <script src="js/slick.min.js"></script>
-        <script src="js/ajax-form.js"></script>
-        <script src="js/wow.min.js"></script>
-        <script src="js/aos.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+<script src="{% static 'js/vendor/jquery-3.6.0.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.odometer.min.js' %}"></script>
+<script src="{% static 'js/jquery.appear.js' %}"></script>
+<script src="{% static 'js/slick.min.js' %}"></script>
+<script src="{% static 'js/ajax-form.js' %}"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script src="{% static 'js/aos.js' %}"></script>
+<script src="{% static 'js/plugins.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
     </body>
 
-<!-- Mirrored from themebeyond.com/html/movflx/movie-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 02 Apr 2022 11:56:26 GMT -->
 </html>

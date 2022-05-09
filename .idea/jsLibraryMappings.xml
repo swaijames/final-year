@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="file://$PROJECT_DIR$" libraries="{79b9fc200607d01d8bcce28fd095e7c9, font-awesome}" />
+    <file url="file://$PROJECT_DIR$" libraries="{font-awesome}" />
   </component>
 </project>

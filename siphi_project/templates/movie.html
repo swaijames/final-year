@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Swahili - Sinema</title>
+    <title>Swahiliflx</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
@@ -67,6 +67,7 @@
 
                                     </li>
                                     <li><a href="{% url 'contact' %}">contacts</a></li>
+                                    <li><a href="{% url 'contact' %}">About us</a></li>
                                 </ul>
                             </div>
                             <div class="header-action d-none d-md-block">
@@ -243,7 +244,7 @@
                         </div>
                         <div class="movie-content">
                             <div class="top">
-                                <h5 class="title"><a href="">The Perfect Match</a></h5>
+                                <h5 class="title"><a href="{% url 'movie_detail' %}">The Perfect Match</a></h5>
                                 <span class="date">2021</span>
                             </div>
                             <div class="bottom">
@@ -340,12 +341,12 @@
                                 </li>
                                 <li><a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch
                                     Now</a></li>
-                                <li><a href="movie-details.html" class="btn">Details</a></li>
+                                <li><a href="{% url 'movie_detail' %}" class="btn">Details</a></li>
                             </ul>
                         </div>
                         <div class="movie-content">
                             <div class="top">
-                                <h5 class="title"><a href="movie-details.html">The Cooking</a></h5>
+                                <h5 class="title"><a href="{% url 'movie_detail' %}">The Cooking</a></h5>
                                 <span class="date">2021</span>
                             </div>
                             <div class="bottom">
@@ -374,12 +375,12 @@
                                 </li>
                                 <li><a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch
                                     Now</a></li>
-                                <li><a href="movie-details.html" class="btn">Details</a></li>
+                                <li><a href="{% url 'movie_detail' %}" class="btn">Details</a></li>
                             </ul>
                         </div>
                         <div class="movie-content">
                             <div class="top">
-                                <h5 class="title"><a href="movie-details.html">The Hikaru Night</a></h5>
+                                <h5 class="title"><a href="{% url 'movie_detail' %}">The Hikaru Night</a></h5>
                                 <span class="date">2021</span>
                             </div>
                             <div class="bottom">
@@ -408,12 +409,12 @@
                                 </li>
                                 <li><a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch
                                     Now</a></li>
-                                <li><a href="movie-details.html" class="btn">Details</a></li>
+                                <li><a href="{% url 'movie_detail' %}" class="btn">Details</a></li>
                             </ul>
                         </div>
                         <div class="movie-content">
                             <div class="top">
-                                <h5 class="title"><a href="movie-details.html">The Life Quotes</a></h5>
+                                <h5 class="title"><a href="{% url 'movie_detail' %}">The Life Quotes</a></h5>
                                 <span class="date">2021</span>
                             </div>
                             <div class="bottom">
@@ -442,12 +443,12 @@
                                 </li>
                                 <li><a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch
                                     Now</a></li>
-                                <li><a href="movie-details.html" class="btn">Details</a></li>
+                                <li><a href="{% url 'movie_detail' %}" class="btn">Details</a></li>
                             </ul>
                         </div>
                         <div class="movie-content">
                             <div class="top">
-                                <h5 class="title"><a href="movie-details.html">The Beachball</a></h5>
+                                <h5 class="title"><a href="{% url 'movie_detail' %}">The Beachball</a></h5>
                                 <span class="date">2021</span>
                             </div>
                             <div class="bottom">
@@ -488,8 +489,8 @@
             <div class="newsletter-inner-wrap">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                        <div class="newsletter-content">
-                            <h4>Get Free Start Online Movie.</h4>
+                           <div class="newsletter-content">
+                            <h4>Get Start Online Movie.</h4>
                             <p>Enter your email to create your membership.</p>
                         </div>
                     </div>
@@ -526,7 +527,7 @@
                                 <ul class="navigation">
                                     <li><a href="{% url 'index' %}">Home</a></li>
                                     <li><a href="{% url 'movie' %}">Movie</a></li>
-                                    <li><a href="index.html">pages</a></li>
+                                    <li><a href="{% url 'index' %}">pages</a></li>
                                 </ul>
                                 <nav>
                                     <div class="footer-search">
@@ -571,7 +572,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="copyright-text">
-                            <p>Copyright &copy; 2021. All Rights Reserved By <a href="index.html">Movflx</a></p>
+                            <p>Copyright &copy; 2022. All Rights Reserved By <a href="index.html">SwahiliFlx</a></p>
                         </div>
                     </div>
                 </div>
