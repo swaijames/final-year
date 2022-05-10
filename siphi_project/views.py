@@ -85,8 +85,8 @@ def signout(request):
     return redirect('signin')
 
 
-def forgot(request):
-    return render(request, 'form/forgot.html')
+# def reset_password(request):
+#     return render(request, 'form/forgot.html')
 
 
 def movie(request):

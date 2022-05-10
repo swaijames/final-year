@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'siphi_project',
-    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -117,6 +116,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+# email Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'swahilisinema@gmail.com'
