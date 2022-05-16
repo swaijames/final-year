@@ -89,22 +89,23 @@
                                     {% if user.is_authenticated %}
                                         <li class="menu-item-has-children"><a href="{% url 'signout' %}">sign out</a>
                                         </li>
-                                        <li class="menu-item-has-children">welcome {{ fname }}
-                                        </li>
+                                        <li class="menu-item-has-children">{{ request.user.username }}</li>
                                     {% else %}
                                         <li class="header-btn"><a href="{% url 'signin' %}" class="btn">Sign In</a></li>
                                         </ul>
-                                        </div>
-                                        </nav>
-                                        </div>
                                     {% endif %}
+                            </div>
+                        </nav>
+                    </div>
+
                     <!-- Mobile Menu  -->
                     <div class="mobile-menu">
                         <div class="close-btn"><i class="fas fa-times"></i></div>
 
                         <nav class="menu-box">
-                            <div class="nav-logo"><a href="{% url 'index' %}"><img src="{% static 'img/logo/logo.png' %}"
-                                                                            alt="" title=""></a>
+                            <div class="nav-logo"><a href="{% url 'index' %}"><img
+                                    src="{% static 'img/logo/logo.png' %}"
+                                    alt="" title=""></a>
                             </div>
                             <div class="menu-outer">
                                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
@@ -183,6 +184,7 @@
     <!-- banner-area-end -->
 
     <!-- up-coming-movie-area -->
+
     <section class="ucm-area ucm-bg" data-background="{% static 'img/bg/ucm_bg.jpg' %}">
         <div class="ucm-bg-shape" data-background="{% static 'img/bg/ucm_bg_shape.png' %}"></div>
         <div class="container">
@@ -212,6 +214,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="tvShow" role="tabpanel" aria-labelledby="tvShow-tab">
                     <div class="ucm-active owl-carousel">
@@ -222,8 +225,8 @@
                             </div>
                             <div class="movie-content">
                                 <div class="top">
-                                    <h5 class="title"><a href="{% url 'movie_detail' %}">OFF-SIDE</a></h5>
-                                    <span class="date">2021</span>
+                                    <h5 class="title"><a href="{% url 'movie_detail' %}"></a></h5>
+                                    <span class="date">2022</span>
                                 </div>
                                 <div class="bottom">
                                     <ul>
@@ -243,7 +246,7 @@
                             </div>
                             <div class="movie-content">
                                 <div class="top">
-                                    <h5 class="title"><a href="{% url 'movie_detail' %}">Bikira Kidawa</a></h5>
+                                    <h5 class="title"><a href="{% url 'movie_detail' %}"></a></h5>
                                     <span class="date">2021</span>
                                 </div>
                                 <div class="bottom">
@@ -264,7 +267,7 @@
                             </div>
                             <div class="movie-content">
                                 <div class="top">
-                                    <h5 class="title"><a href="{% url 'movie_detail' %}">Hakuna Matata</a></h5>
+                                    <h5 class="title"><a href="{% url 'movie_detail' %}"></a></h5>
                                     <span class="date">2021</span>
                                 </div>
                                 <div class="bottom">
@@ -595,6 +598,7 @@
     <!-- services-area-end -->
 
     <!-- top-rated-movie -->
+
     <section class="top-rated-movie tr-movie-bg" data-background="{% static 'img/bg/tr_movies_bg.jpg' %}">
         <div class="container">
             <div class="row justify-content-center">
@@ -616,6 +620,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="row tr-movie-active">
                 <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
                     <div class="movie-item mb-60">
@@ -625,7 +630,7 @@
                         </div>
                         <div class="movie-content">
                             <div class="top">
-                                <h5 class="title"><a href="movie-details.html">OFF-SIDE</a></h5>
+                                <h5 class="title"><a href="movie-details.html">{{ movie.title }}</a></h5>
                                 <span class="date">2021</span>
                             </div>
                             <div class="bottom">
@@ -804,6 +809,7 @@
             </div>
         </div>
     </section>
+
     <!-- top-rated-movie-end -->
 
     <!-- live-area -->

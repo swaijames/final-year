@@ -33,7 +33,7 @@ def signup(request):
         if User.objects.filter(email=email):
             messages.error(request, "email already exist!! please try another email")
             return redirect('signup')
-        if len(username) > 10:
+        if len(username) > 20:
             messages.error(request, "username too long must be less than 10 characters")
             return redirect('signup')
 
@@ -82,7 +82,7 @@ def signin(request):
 def signout(request):
     logout(request)
     messages.success(request, "successfully logout")
-    return redirect('signin')
+    return redirect('index')
 
 
 # def reset_password(request):
