@@ -27,6 +27,7 @@
 <!-- sign in -->
 <div class="sign section--bg" data-bg="{% static 'img/bg.jpg' %}">
     <div class="container">
+
         <div class="row">
             <div class="col-12">
                 <div class="sign__content">
@@ -36,7 +37,11 @@
                         <a href="{% url 'index' %}" class="sign__logo">
                             <img src="{% static 'img/logo/logo.png' %}" alt="logo">
                         </a>
-
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div style="color:white" class="container mt-3 message alert alert-{{ message }} text-center">{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
                         <div class="sign__group">
                             <input type="email" class="sign__input" name="email" placeholder="Email" required>
                         </div>
