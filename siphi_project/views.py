@@ -38,6 +38,9 @@ def forgot(request):
 def movie(request):
     return render(request, 'movie.html')
 
+def Dashboard(request):
+    return render(request, 'Dashboard.html')
+
 
 def contact(request):
     if request.method == 'POST':
@@ -65,4 +68,6 @@ def contact(request):
 
 def movie_details(request):
     return render(request, 'movie-details.html')
+
+
 # Create your views here.
