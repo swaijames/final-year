@@ -154,7 +154,7 @@ def reset_password(request):
         email = request.POST['email']
         if User.objects.filter(email=email).exists():
             uid = User.objects.get(email=email)
-            url = f'http://127.0.0.1:8090/password_reset_confirm/{uid.profile.uuid}'
+            url = f'http://127.0.0.1:8000/password_reset_confirm/{uid.profile.uuid}'
             send_mail('Reset password', url, settings.EMAIL_HOST_USER, [email], fail_silently=False, )
             return redirect('password_reset_done')
         else:

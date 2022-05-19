@@ -13,7 +13,7 @@ class Profile(models.Model):
     uuid = models.UUIDField(default=uuid.uuid4, editable=False)
 
     def __str__(self):
-        return self.user
+        return '{}'.format(self.user)
 
 
 NOT_RATED = 0
@@ -88,3 +88,21 @@ class Vote(models.Model):
 
 class Meta:
     unique_together = ('user', 'movie')
+
+
+class Genre(models.Model):
+    genre_name = models.CharField(choices=CATEGORY_CHOICES, null=False, blank=False, max_length=150)
+
+    def category_id(self):
+        return self.id
+
+    def __str__(self):
+        return '{}'.format(self.genre_name)
+
+
+class MovieGenre(models.Model):
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    genre_id = models.ForeignKey(Genre, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return '{}({})'.format(self.id, self.movie)
