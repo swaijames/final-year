@@ -98,8 +98,9 @@
                         <div class="close-btn"><i class="fas fa-times"></i></div>
 
                         <nav class="menu-box">
-                            <div class="nav-logo"><a href="{% url 'index' %}"><img src="{% static 'img/logo/logo.png' %}"
-                                                                            alt="" title=""></a>
+                            <div class="nav-logo"><a href="{% url 'index' %}"><img
+                                    src="{% static 'img/logo/logo.png' %}"
+                                    alt="" title=""></a>
                             </div>
                             <div class="menu-outer">
                                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
@@ -170,14 +171,16 @@
                     <div class="contact-form-wrap">
                         <div class="widget-title mb-50">
                             <h5 class="title">Contact Form</h5>
-                            {% for msg in messages %}
-                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <strong>Hello!</strong> {{ msg }}
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            {% endfor %}
+                            {% if messages %}
+                                {% for msge in messages %}
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <strong>Hello!</strong> {{ msge }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
                         </div>
                         <div class="contact-form">
                             <form action="{% url 'contact' %}" method="post">
@@ -240,7 +243,7 @@
             <div class="newsletter-inner-wrap">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                         <div class="newsletter-content">
+                        <div class="newsletter-content">
                             <h4>Get Start Online Movie.</h4>
                             <p>Enter your email to create your membership.</p>
                         </div>
@@ -280,7 +283,6 @@
                                     <button><i class="fas fa-search"></i></button>
                                 </form>
                             </div>
-                            </nav>
                         </div>
                     </div>
                 </div>
