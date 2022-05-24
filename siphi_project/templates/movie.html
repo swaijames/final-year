@@ -67,7 +67,7 @@
 
                                     </li>
                                     <li><a href="{% url 'contact' %}">contacts</a></li>
-                                    <li><a href="{% url 'contact' %}">About us</a></li>
+{#                                    <li><a href="{% url 'contact' %}">About us</a></li>#}
                                 </ul>
                             </div>
                             <div class="header-action d-none d-md-block">
@@ -143,7 +143,7 @@
 <main>
 
     <!-- breadcrumb-area -->
-    <section class="breadcrumb-area breadcrumb-bg" data-background="{% static 'img/bg/breadcrumb_bg.jpg' %}">
+    <section class="breadcrumb-area breadcrumb-bg" data-background="{% static 'img/bg/breadcrumb_bg.png' %}">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -239,7 +239,7 @@
                                 </li>
                                 <li><a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch
                                     Now</a></li>
-                                <li><a href="{% static 'movie-details' %}" class="btn">Details</a></li>
+                                <li><a href="{% url 'movie_detail' %}" class="btn">Details</a></li>
                             </ul>
                         </div>
                         <div class="movie-content">

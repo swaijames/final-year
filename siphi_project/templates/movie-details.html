@@ -66,7 +66,7 @@
 
                                     </li>
                                     <li><a href="{% url 'contact' %}">contacts</a></li>
-                                    <li><a href="{% url 'contact' %}">About us</a></li>
+{#                                    <li><a href="{% url 'contact' %}">About us</a></li>#}
                                 </ul>
                             </div>
                             <div class="header-action d-none d-md-block">
@@ -143,7 +143,7 @@
             <section class="movie-details-area" data-background="{% static 'img/bg/movie_details_bg.jpg' %}">
                 <div class="container">
                     <div class="row align-items-center position-relative">
-                        <div class="col-xl-3 col-lg-4">
+                        <div class="col-xl-5 col-lg-4">
                             <div class="movie-details-img">
                                 <img src="{% static 'img/poster/movie_details_img.jpg' %}" alt="">
                                 <a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video"><img src="{% static 'img/images/play_icon.png' %}" alt=""></a>
@@ -152,7 +152,8 @@
                         <div class="col-xl-6 col-lg-8">
                             <div class="movie-details-content">
                                 <h5>New Movie</h5>
-                                <h2> OFF-SIDE <span>  hiden truth</span></h2>
+                                <h2> OFF-SIDE
+                                    <span><br>Hiden Truth</span></h2>
                                 <div class="banner-meta">
                                     <ul>
                                         <li class="quality">
@@ -164,13 +165,13 @@
                                             <a href="#">Drama</a>
                                         </li>
                                         <li class="release-time">
-                                            <span><i class="far fa-calendar-alt"></i> 2021</span>
+                                            <span><i class="far fa-calendar-alt"></i> 2012</span>
                                             <span><i class="far fa-clock"></i> 128 min</span>
                                         </li>
                                     </ul>
                                 </div>
                                 <p> Steven Kanumba, Lisa Jensen, Pacho Mwamba, Ray Kigosi, Nad Zamda Salum
-                                    ( Official Bongo Movie ) Subscribe to SwahiliFlx </p>
+                                    (Official Bongo Movie) Subscribe to SwahiliFlx </p>
                                 <div class="movie-details-prime">
                                     <ul>
                                         <li class="share"><a href="#"><i class="fas fa-share-alt"></i> Share</a></li>
@@ -253,13 +254,7 @@
                         <div class="col-12">
                             <div class="movie-history-wrap">
                                 <h3 class="title">About <span>History</span></h3>
-                                <p>Lorem ipsum dolor sit amet, consecetur adipiscing elseddo eiusmod tempor.There are many variations of passages of lorem
-                                Ipsum available, but the majority have suffered alteration in some injected humour.There are many variations of passages
-                                of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised
-                                words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure
-                                there isn't anything errassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to
-                                repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of
-                                over 200 Latin words, combined with a handful</p>
+                                <p></p>
                             </div>
                         </div>
                     </div>
@@ -282,11 +277,11 @@
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="movie-item mb-50">
                                 <div class="movie-poster">
-                                    <a href="movie-details.html"><img src="{% static 'img/poster/ucm_poster09.jpg' %}" alt=""></a>
+                                    <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster09.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="movie-content">
                                     <div class="top">
-                                        <h5 class="title"><a href="movie-details.html">Women's Day</a></h5>
+                                        <h5 class="title"><a href="{% url 'movie_detail' %}">Women's Day</a></h5>
                                         <span class="date">2021</span>
                                     </div>
                                     <div class="bottom">
@@ -304,11 +299,11 @@
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="movie-item mb-50">
                                 <div class="movie-poster">
-                                    <a href="movie-details.html"><img src="{% static 'img/poster/ucm_poster10.jpg' %}" alt=""></a>
+                                    <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster10.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="movie-content">
                                     <div class="top">
-                                        <h5 class="title"><a href="movie-details.html">The Perfect Match</a></h5>
+                                        <h5 class="title"><a href="{% url 'movie_detail' %}">The Perfect Match</a></h5>
                                         <span class="date">2021</span>
                                     </div>
                                     <div class="bottom">
@@ -326,11 +321,11 @@
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="movie-item mb-50">
                                 <div class="movie-poster">
-                                    <a href="movie-details.html"><img src="{% static 'img/poster/ucm_poster03.jpg' %}" alt=""></a>
+                                    <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster03.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="movie-content">
                                     <div class="top">
-                                        <h5 class="title"><a href="movie-details.html">The Dog Woof</a></h5>
+                                        <h5 class="title"><a href="{% url 'movie_detail' %}">The Dog Woof</a></h5>
                                         <span class="date">2021</span>
                                     </div>
                                     <div class="bottom">
@@ -348,11 +343,11 @@
                         <div class="col-xl-3 col-lg-4 col-sm-6">
                             <div class="movie-item mb-50">
                                 <div class="movie-poster">
-                                    <a href="movie-details.html"><img src="{% static 'img/poster/ucm_poster04.jpg' %}" alt=""></a>
+                                    <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster04.jpg' %}" alt=""></a>
                                 </div>
                                 <div class="movie-content">
                                     <div class="top">
-                                        <h5 class="title"><a href="movie-details.html">The Easy Reach</a></h5>
+                                        <h5 class="title"><a href="{% url 'movie_detail' %}">The Easy Reach</a></h5>
                                         <span class="date">2021</span>
                                     </div>
                                     <div class="bottom">
@@ -407,7 +402,7 @@
                         <div class="row align-items-center">
                             <div class="col-lg-3">
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="{% static 'img/logo/logo.png' %}" alt=""></a>
+                                    <a href="{% url 'index' %}"><img src="{% static 'img/logo/logo.png' %}" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-lg-9">
@@ -461,7 +456,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6">
                             <div class="copyright-text">
-                                <p>Copyright &copy; 2022. All Rights Reserved By <a href="index.html">SwahiliFlx</a></p>
+                                <p>Copyright &copy; 2022. All Rights Reserved By <a href="{% url 'index' %}">SwahiliFlx</a></p>
                             </div>
                         </div>
                   
