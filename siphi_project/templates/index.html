@@ -860,12 +860,12 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6">
                     <div class="movie-item mb-50">
                         <div class="movie-poster">
-                            <a href="movie-details.html"><img src="{% static 'img/poster/ucm_poster09.jpg' %}"
+                            <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster09.jpg' %}"
                                                               alt=""></a>
                         </div>
                         <div class="movie-content">
                             <div class="top">
-                                <h5 class="title"><a href="movie-details.html">OFF-SIDE</a></h5>
+                                <h5 class="title"><a href="{% url 'movie_detail' %}">OFF-SIDE</a></h5>
                                 <span class="date">2021</span>
                             </div>
                             <div class="bottom">
@@ -883,12 +883,12 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6">
                     <div class="movie-item mb-50">
                         <div class="movie-poster">
-                            <a href="movie-details.html"><img src="{% static 'img/poster/ucm_poster10.jpg' %}"
+                            <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster10.jpg' %}"
                                                               alt=""></a>
                         </div>
                         <div class="movie-content">
                             <div class="top">
-                                <h5 class="title"><a href="movie-details.html">Bikira Kidawa</a></h5>
+                                <h5 class="title"><a href="{% url 'movie_detail' %}">Bikira Kidawa</a></h5>
                                 <span class="date">2021</span>
                             </div>
                             <div class="bottom">
@@ -906,12 +906,12 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6">
                     <div class="movie-item mb-50">
                         <div class="movie-poster">
-                            <a href="movie-details.html"><img src="{% static 'img/poster/ucm_poster03.jpg' %}"
+                            <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster03.jpg' %}"
                                                               alt=""></a>
                         </div>
                         <div class="movie-content">
                             <div class="top">
-                                <h5 class="title"><a href="movie-details.html">Hakuna Matata</a></h5>
+                                <h5 class="title"><a href="{% url 'movie_detail' %}">Hakuna Matata</a></h5>
                                 <span class="date">2021</span>
                             </div>
                             <div class="bottom">
@@ -929,12 +929,12 @@
                 <div class="col-xl-3 col-lg-4 col-sm-6">
                     <div class="movie-item mb-50">
                         <div class="movie-poster">
-                            <a href="movie-details.html"><img src="{% static 'img/poster/ucm_poster04.jpg' %}"
+                            <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster04.jpg' %}"
                                                               alt=""></a>
                         </div>
                         <div class="movie-content">
                             <div class="top">
-                                <h5 class="title"><a href="movie-details.html">Madame</a></h5>
+                                <h5 class="title"><a href="{% url 'movie_detail' %}">Madame</a></h5>
                                 <span class="date">2021</span>
                             </div>
                             <div class="bottom">
@@ -989,7 +989,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3">
                         <div class="footer-logo">
-                            <a href="index.html"><img src="{% static 'img/logo/logo.png' %}" alt=""></a>
+                            <a href="{% url 'index' %}"><img src="{% static 'img/logo/logo.png' %}" alt=""></a>
                         </div>
                     </div>
                     <div class="col-lg-9">
