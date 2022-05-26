@@ -46,7 +46,7 @@ body {
 body {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
-  background-color: #131720;
+  background-color: #0C1E28;
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
 }
@@ -134,7 +134,7 @@ body::-webkit-scrollbar-track {
   background: #151f30;
 }
 body::-webkit-scrollbar-thumb {
-  background-color: #2f80ed;
+  /*background-color: #2f80ed;*/
   outline: 1px solid #151f30;
 }
 .tab-content {
@@ -1203,14 +1203,14 @@ body::-webkit-scrollbar-thumb {
 }
 .form__input {
   background-color: #151f30;
-  border: 1px solid transparent;
+  border: 1px  #e4d804;
   border-radius: 16px;
   height: 44px;
   position: relative;
   color: #fff;
   font-size: 14px;
   width: 100%;
-  padding: 0 20px;
+  /*padding: 0 20px;*/
 }
 .form__input:focus {
   background-color: #151f30;
@@ -1991,7 +1991,7 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   width: 100%;
   max-width: 400px;
-  border: 1px solid #151f30;
+  border: 1px solid #e4d804;
 }
 .sign__form--profile {
   margin-top: 20px;
@@ -2045,7 +2045,10 @@ body::-webkit-scrollbar-thumb {
   color: #fff;
   font-size: 14px;
   width: 100%;
-  padding: 0 20px;
+  /*padding: 0 20px;*/
+}
+::placeholder{
+  margin-left: 75px;
 }
 .sign__input:focus {
   background-color: #151f30;
