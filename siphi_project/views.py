@@ -20,7 +20,8 @@ from .forms import UserCreationForm
 
 
 def index(request):
-    return render(request, 'index.html')
+    movies = MovieImage.objects.all().order_by('-uploaded')[:4]
+    return render(request, 'index.html', {"movies": movies})
 
 
 def signup(request):
