@@ -12,7 +12,7 @@
   --primary-fg: #fff;
 
   --body-fg: #333;
-  --body-bg: #fff;
+  --body-bg: #0C1E28;
   --body-quiet-color: #666;
   --body-loud-color: #000;
 
@@ -63,7 +63,7 @@
     --primary-fg: #eee;
 
     --body-fg: #eeeeee;
-    --body-bg: #121212;
+    --body-bg: #0C1E28;
     --body-quiet-color: #e0e0e0;
     --body-loud-color: #ffffff;
 
@@ -74,8 +74,8 @@
     --link-hover-color: #4ac1f7;
     --link-selected-fg: #6f94c6;
 
-    --hairline-color: #272727;
-    --border-color: #353535;
+    --hairline-color: #F5DD5D;
+    --border-color: #F5DD5D;
 
     --error-fg: #e35f5f;
     --message-success-bg: #006b1b;
