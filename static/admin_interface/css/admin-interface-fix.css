@@ -117,7 +117,7 @@
 }
 
 .admin-interface fieldset.collapse {
-    border: 1px solid transparent;
+    border: 1px solid #E2D604;
 }
 
 .admin-interface fieldset.collapse.collapsed a.collapse-toggle,
@@ -368,13 +368,13 @@ body.admin-interface .paginator a.showall:visited {
 
 /* top-right buttons color on hover -> just a lighten grey */
 .admin-interface .object-tools a {
-    color:#FFFFFF;
+    color: #E2D604;
 }
 .admin-interface .object-tools a:focus,
 .admin-interface .object-tools a:hover,
 .admin-interface .object-tools li:focus a,
 .admin-interface .object-tools li:hover a {
-    background-color:#AAAAAA;
+    background-color: #0C1E28;
 }
 
 /* improve responsive selector */
@@ -408,14 +408,14 @@ body.admin-interface .paginator a.showall:visited {
     height: 45px;
     margin-top: 10px;
     margin-right: 10px;
-    background-color: #FFFFFF;
+    background-color: #0C1E28;
     font-size: 16px;
-    border: 1px solid #eaeaea;
+    border: 1px solid #E2D604;
     border-left: none;
     outline: none;
-    -webkit-box-shadow: 4px 2px 8px -4px #DBDBDB;
-    -moz-box-shadow: 4px 2px 8px -4px #DBDBDB;
-    box-shadow: 4px 2px 8px -4px #DBDBDB;
+    -webkit-box-shadow: 4px 2px 8px -4px #0C1E28;
+    -moz-box-shadow: 4px 2px 8px -4px #0C1E28;
+    box-shadow: 4px 2px 8px -4px #0C1E28;
     /*transition: left .3s;*/
 }
 

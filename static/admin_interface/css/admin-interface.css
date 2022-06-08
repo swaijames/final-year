@@ -1,27 +1,27 @@
 @media (prefers-color-scheme: dark) {
     :root .admin-interface {
         --primary: #0C1E28;
-        --secondary: #f5dd5d;
-        --accent: #f5dd5d;
+        --secondary: #E2D604;
+        --accent: #E2D604;
         --primary-fg: #0C1E28;
-        --body-fg: #f5dd5d;
+        --body-fg: #E2D604;
         --body-bg:  #0C1E28;
-        --body-quiet-color: #f5dd5d;
+        --body-quiet-color: #E2D604;
         --body-loud-color: #000;
-        --header-color: #f5dd5d;
+        --header-color: #E2D604;
         --header-branding-color: var(--accent);
         --header-bg: var(--secondary);
         --header-link-color: var(--primary-fg);
         --breadcrumbs-fg: #0C1E28;
         --breadcrumbs-link-fg: var(--body-bg);
         --breadcrumbs-bg: var(--primary);
-        --link-fg: #f5dd5d;
-        --link-hover-color: #f5dd5d;
-        --link-selected-fg: #f5dd5d;
-        --hairline-color: #f5dd5d;
-        --border-color: #f5dd5d;
+        --link-fg: #E2D604;
+        --link-hover-color: #E2D604;
+        --link-selected-fg: #E2D604;
+        --hairline-color: #E2D604;
+        --border-color: #E2D604;
         --error-fg: #ba2121;
-        --message-success-bg: #f5dd5d;
+        --message-success-bg: #E2D604;
         --message-warning-bg: #0C1E28;
         --message-error-bg: #ffefef;
         --darkened-bg: #0C1E28;
@@ -31,7 +31,7 @@
         --button-bg: var(--primary);
         --button-hover-bg: #609ab6;
         --default-button-bg: var(--secondary);
-        --default-button-hover-bg: #f5dd5d;
+        --default-button-hover-bg: #E2D604;
         --close-button-bg: #0C1E28;
         --close-button-hover-bg: #747474;
         --delete-button-bg: #ba2121;
@@ -138,7 +138,7 @@
 .admin-interface #header #user-tools a:hover,
 .admin-interface #header #user-tools a:active {
     color: var(--admin-interface-header-link_hover-color);
-    border-bottom-color: #f5dd5d;
+    border-bottom-color: #E2D604;
 }
 
 .admin-interface #nav-sidebar .current-app .section:link,
@@ -248,7 +248,7 @@
 .admin-interface thead th a:visited,
 .admin-interface thead th a:focus,
 .admin-interface thead th a:hover {
-    color: #f5dd5d;
+    color: #E2D604;
 }
 
 .admin-interface .button,
@@ -271,7 +271,7 @@
 .admin-interface input[type=button]:hover {
     background: var(--admin-interface-save-button-background-hover-color);
     color: var(--admin-interface-save-button-text-color);
-    outline: #f5dd5d !important;
+    outline: #E2D604 !important;
 }
 
 .admin-interface .button.default,
@@ -279,7 +279,7 @@
 .admin-interface .submit-row input.default {
     background: var(--admin-interface-save-button-background-color);
     color: var(--admin-interface-save-button-text-color);
-    outline: #f5dd5d !important;
+    outline: #E2D604 !important;
 }
 
 .admin-interface .button.default:active,
@@ -291,7 +291,7 @@
 .admin-interface.delete-confirmation form .cancel-link:hover {
     background: var(--admin-interface-save-button-background-hover-color);
     color: var(--admin-interface-save-button-text-color);
-    outline: #f5dd5d !important;
+    outline: #E2D604!important;
 }
 
 .admin-interface .submit-row a.deletelink:link,
@@ -367,13 +367,13 @@
 
 .admin-interface .module.filtered #changelist-filter #changelist-filter-clear a:focus,
 .admin-interface .module.filtered #changelist-filter #changelist-filter-clear a:hover {
-    color: #f5dd5d;
+    color: #E2D604;
     text-decoration: none;
 }
 
 .admin-interface .module.filtered #changelist-filter li a:focus,
 .admin-interface .module.filtered #changelist-filter li a:hover {
-    color: #f5dd5d;
+    color: #E2D604;
     text-decoration: none;
 }
 
