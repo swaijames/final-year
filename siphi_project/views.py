@@ -118,7 +118,7 @@ def contact(request):
 
            from: {}
              '''.format(data['message'], data['email'])
-        send_mail(data['subject'], messager, '', ['swahilisinema@gmail.com'])
+        send_mail(data['subject'], messager, '', ['pinchkiller@outlook.com'])
         messages.success(request, "data sent to email")
     return render(request, 'contact.html')
 

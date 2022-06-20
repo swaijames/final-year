@@ -219,12 +219,72 @@
                     <div class="ucm-active owl-carousel">{% endif %}
             <div class="movie-item mb-50">
                 <div class="movie-poster">
-                    <a href="{% url 'index' %}"><img src="{{ movie.image.url }}"
+                    <a href="{% url 'movie_detail' %}"><img src="{{ movie.image.url }}"
                                                      alt="pic"></a>
                 </div>
                 <div class="movie-content">
                     <div class="top">
-                        <h5 class="title"><a href="{% url 'index' %}"></a>{{ movie.movie.title }}</h5>
+                        <h5 class="title"><a href="{% url 'movie_detail' %}"></a>{{ movie.movie.title }}</h5>
+                        <span class="date">2022</span></div>
+                    <div class="bottom">
+                        <ul>
+                            <li><span class="quality">hd</span></li>
+                            <li>
+                                <span class="duration"><i class="far fa-clock"></i> 128 min</span>
+                                <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:4 %}
+                </div>
+                <div class=row>{% endif %}
+            {% if forloop.last %}</div>{% endif %}
+            {% endfor %}
+            </div>
+            {% for movie in movies %}
+                {% if forloop.first %}
+                    <div class="tab-pane fade" id="movies" role="tabpanel" aria-labelledby="movies-tab">
+                    <div class="ucm-active owl-carousel">{% endif %}
+            <div class="movie-item mb-50">
+                <div class="movie-poster">
+                    <a href="{% url 'movie_detail' %}"><img src="{{ movie.image.url }}"
+                                                     alt="pic"></a>
+                </div>
+                <div class="movie-content">
+                    <div class="top">
+                        <h5 class="title"><a href="{% url 'movie_detail' %}"></a>{{ movie.movie.title }}</h5>
+                        <span class="date">2022</span></div>
+                    <div class="bottom">
+                        <ul>
+                            <li><span class="quality">hd</span></li>
+                            <li>
+                                <span class="duration"><i class="far fa-clock"></i> 128 min</span>
+                                <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% if forloop.counter|divisibleby:4 %}
+                </div>
+                <div class=row>{% endif %}
+            {% if forloop.last %}</div>{% endif %}
+            {% endfor %}
+            </div>
+            {% for movie in movies %}
+                {% if forloop.first %}
+                    <div class="tab-pane fade" id="anime" role="tabpanel" aria-labelledby="anime-tab">
+                    <div class="ucm-active owl-carousel">{% endif %}
+            <div class="movie-item mb-50">
+                <div class="movie-poster">
+                    <a href="{% url 'movie_detail' %}"><img src="{{ movie.image.url }}"
+                                                     alt="pic"></a>
+                </div>
+                <div class="movie-content">
+                    <div class="top">
+                        <h5 class="title"><a href="{% url 'movie_detail' %}"></a>{{ movie.movie.title }}</h5>
                         <span class="date">2022</span></div>
                     <div class="bottom">
                         <ul>
