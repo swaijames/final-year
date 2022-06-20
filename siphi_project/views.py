@@ -1,4 +1,8 @@
+from profile import Profile
+
+
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.hashers import make_password
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.contrib.auth.models import User
@@ -6,6 +10,7 @@ from django.http import HttpResponse
 from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+import uuid
 
 from .models import *
 from .forms import UserCreationForm
@@ -15,7 +20,8 @@ from .forms import UserCreationForm
 
 
 def index(request):
-    return render(request, 'index.html')
+    movies = MovieImage.objects.all().order_by('-uploaded')[:4]
+    return render(request, 'index.html', {"movies": movies})
 
 
 def signup(request):
@@ -119,4 +125,44 @@ def contact(request):
 
 def movie_details(request):
     return render(request, 'movie-details.html')
+
+
+def change_password(request, uid):
+    try:
+        if Profile.objects.filter(uuid=uid).exists():
+            if request.method == 'POST':
+                pass1 = 'password1' in request.POST and request.POST['password1']
+                pass2 = 'password2' in request.POST and request.POST['password2']
+                if pass1 == pass2:
+                    p = Profile.objects.get(uuid=uid)
+                    u = p.user
+                    user = User.objects.get(username=u)
+                    user.password = make_password(pass1)
+                    user.save()
+                    messages.success(request, "password has been reset successfully")
+                    return redirect('signin')
+                else:
+                    messages.error(request, "two password did not match")
+        else:
+            return HttpResponse('invalid url')
+    except:
+        return HttpResponse('invalid url')
+    return render(request, './form/password_reset_confirm.html')
+
+
+def reset_password(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        if User.objects.filter(email=email).exists():
+            uid = User.objects.get(email=email)
+            url = f'http://127.0.0.1:8000/password_reset_confirm/{uid.profile.uuid}'
+            send_mail('Reset password', url, settings.EMAIL_HOST_USER, [email], fail_silently=False, )
+            return redirect('password_reset_done')
+        else:
+            messages.error(request, "email address is not exists")
+    return render(request, './form/forgot.html')
+
+
+def password_reset_done(request):
+    return render(request, './form/password_reset_done.html')
 # Create your views here.

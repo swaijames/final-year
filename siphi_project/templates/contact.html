@@ -67,7 +67,7 @@
                                     </li>
 
                                     <li class="active"><a href="{% url 'contact' %}">contacts</a></li>
-                                    <li><a href="{% url 'contact' %}">About us</a></li>
+                                    {#                                    <li><a href="{% url 'contact' %}">About us</a></li>#}
                                 </ul>
                             </div>
                             <div class="header-action d-none d-md-block">
@@ -81,9 +81,6 @@
                                             <select id="lang-dropdown">
                                                 <option value="">En</option>
                                                 <option value="">Sw</option>
-                                                <option value="">Au</option>
-                                                <option value="">AR</option>
-                                                <option value="">TU</option>
                                             </select>
                                         </form>
                                     </li>
@@ -98,8 +95,9 @@
                         <div class="close-btn"><i class="fas fa-times"></i></div>
 
                         <nav class="menu-box">
-                            <div class="nav-logo"><a href="{% url 'index' %}"><img src="{% static 'img/logo/logo.png' %}"
-                                                                            alt="" title=""></a>
+                            <div class="nav-logo"><a href="{% url 'index' %}"><img
+                                    src="{% static 'img/logo/logo.png' %}"
+                                    alt="" title=""></a>
                             </div>
                             <div class="menu-outer">
                                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
@@ -143,7 +141,7 @@
 <main>
 
     <!-- breadcrumb-area -->
-    <section class="breadcrumb-area breadcrumb-bg" data-background="{% static 'img/bg/breadcrumb_bg.jpg' %}">
+    <section class="breadcrumb-area breadcrumb-bg" data-background="{% static 'img/bg/breadcrumb_bg.png' %}">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -170,14 +168,16 @@
                     <div class="contact-form-wrap">
                         <div class="widget-title mb-50">
                             <h5 class="title">Contact Form</h5>
-                            {% for msge in messages %}
-                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <strong>Hello!</strong> {{ msge }}
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                            {% endfor %}
+                            {% if messages %}
+                                {% for msge in messages %}
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <strong>Hello!</strong> {{ msge }}
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
                         </div>
                         <div class="contact-form">
                             <form action="{% url 'contact' %}" method="post">
@@ -208,7 +208,7 @@
                             <ul>
                                 <li>
                                     <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
-                                    <p><span>Address :</span>11101 Dar Es Salaam Tanzania</p>
+                                    <p><span>Address :</span>City Mall - Dar Es Salaam Tanzania</p>
                                 </li>
                                 <li>
                                     <div class="icon"><i class="fas fa-phone-alt"></i></div>
@@ -218,7 +218,7 @@
                                     <div class="icon"><i class="fas fa-envelope"></i></div>
                                     <p><span>Email :</span> <a href="https://themebeyond.com/cdn-cgi/l/email-protection"
                                                                class="__cf_email__"
-                                                               data-cfemail="92e1e7e2e2fde0e6d2fffde4f4feeabcf1fdff">swahiliflx@gmail</a>
+                                                               data-cfemail="92e1e7e2e2fde0e6d2fffde4f4feeabcf1fdff">swahiliflx@gmail.com</a>
                                     </p>
                                 </li>
                             </ul>
@@ -231,7 +231,11 @@
     <!-- contact-area-end -->
 
     <!-- map -->
-    <div id="map" data-background="{% static 'img/bg/map.jpg' %}"></div>
+    <div id="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15846.48806018279!2d39.292108799999994!3d-6.815743999999986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x185c4b09d202773f%3A0xcdde5fdd663346b6!2sCity%20Mall!5e0!3m2!1sen!2stz!4v1653401270945!5m2!1sen!2stz"
+                width="1920" height="439" style="border:0;
+" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
     <!-- map-end -->
 
     <!-- newsletter-area -->
@@ -240,7 +244,7 @@
             <div class="newsletter-inner-wrap">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
-                         <div class="newsletter-content">
+                        <div class="newsletter-content">
                             <h4>Get Start Online Movie.</h4>
                             <p>Enter your email to create your membership.</p>
                         </div>
@@ -280,7 +284,6 @@
                                     <button><i class="fas fa-search"></i></button>
                                 </form>
                             </div>
-                            </nav>
                         </div>
                     </div>
                 </div>

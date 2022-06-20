@@ -1,9 +1,20 @@
 from uuid import uuid4
+import uuid
 import datetime
 
+from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.aggregates import Sum
 from django.conf import settings
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    uuid = models.UUIDField(default=uuid.uuid4, editable=False)
+
+    def __str__(self):
+        return '{}'.format(self.user)
+
 
 NOT_RATED = 0
 RATED_G = 1
@@ -48,11 +59,50 @@ class Movie(models.Model):
 
 
 #
-# class MovieImage(models.Model):
-#     image = models.ImageField(upload_to='Movie')
-#     uploaded = models.DateTimeField(auto_now_add=True)
-#     movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
-#     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-#
-#     def __str__(self):
-#         return '{}'.format(self.movie)
+class MovieImage(models.Model):
+    image = models.ImageField(upload_to='Movie')
+    uploaded = models.DateTimeField(auto_now_add=True)
+    movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return '{}'.format(self.movie)
+
+
+class Vote(models.Model):
+    UP = 1
+    DOWN = -1
+    VALUE_CHOICES = (
+        (UP, "👍"),
+        (DOWN, "👎")
+    )
+
+    value = models.SmallIntegerField(choices=VALUE_CHOICES)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    voted_on = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return '{}({})'.format(self.movie, self.value)
+
+
+class Meta:
+    unique_together = ('user', 'movie')
+
+
+class Genre(models.Model):
+    genre_name = models.CharField(choices=CATEGORY_CHOICES, null=False, blank=False, max_length=150)
+
+    def category_id(self):
+        return self.id
+
+    def __str__(self):
+        return '{}'.format(self.genre_name)
+
+
+class MovieGenre(models.Model):
+    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
+    genre_id = models.ForeignKey(Genre, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return '{}({})'.format(self.id, self.movie)

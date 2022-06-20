@@ -55,7 +55,7 @@
                     <div class="menu-wrap">
                         <nav class="menu-nav show">
                             <div class="logo">
-                                <a href="index.html">
+                                <a href="{% url 'index' %}">
                                     <img src="{% static 'img/logo/logo.png' %}" alt="Logo">
                                 </a>
                             </div>
@@ -67,7 +67,7 @@
 
                                     </li>
                                     <li><a href="{% url 'contact' %}">contacts</a></li>
-                                    <li><a href="{% url 'contact' %}">About us</a></li>
+{#                                    <li><a href="{% url 'contact' %}">About us</a></li>#}
                                 </ul>
                             </div>
                             <div class="header-action d-none d-md-block">
@@ -81,9 +81,6 @@
                                             <select id="lang-dropdown">
                                                 <option value="">En</option>
                                                 <option value="">Sw</option>
-                                                <option value="">Au</option>
-                                                <option value="">AR</option>
-                                                <option value="">TU</option>
                                             </select>
                                         </form>
                                     </li>
@@ -98,7 +95,7 @@
                         <div class="close-btn"><i class="fas fa-times"></i></div>
 
                         <nav class="menu-box">
-                            <div class="nav-logo"><a href="index.html"><img src="{% static 'img/logo/logo.png' %}"
+                            <div class="nav-logo"><a href="{% url 'index' %}"><img src="{% static 'img/logo/logo.png' %}"
                                                                             alt="" title=""></a>
                             </div>
                             <div class="menu-outer">
@@ -143,7 +140,7 @@
 <main>
 
     <!-- breadcrumb-area -->
-    <section class="breadcrumb-area breadcrumb-bg" data-background="{% static 'img/bg/breadcrumb_bg.jpg' %}">
+    <section class="breadcrumb-area breadcrumb-bg" data-background="{% static 'img/bg/breadcrumb_bg.png' %}">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -151,7 +148,7 @@
                         <h2 class="title">Our <span>Movie</span></h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Movie</li>
                             </ol>
                         </nav>
@@ -239,7 +236,7 @@
                                 </li>
                                 <li><a href="https://www.youtube.com/watch?v=R2gbPxeNk2E" class="popup-video btn">Watch
                                     Now</a></li>
-                                <li><a href="{% static 'movie-details' %}" class="btn">Details</a></li>
+                                <li><a href="{% url 'movie_detail' %}" class="btn">Details</a></li>
                             </ul>
                         </div>
                         <div class="movie-content">
