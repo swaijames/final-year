@@ -16,7 +16,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.10 (Final.Year)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.10 (final-year)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="79b9fc200607d01d8bcce28fd095e7c9" level="application" />
     <orderEntry type="library" name="font-awesome" level="application" />
