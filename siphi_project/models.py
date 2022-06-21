@@ -23,26 +23,13 @@ RATED_PG13 = 3
 RATED_R = 4
 RATED_NC17 = 5
 RATINGS = (
-    (NOT_RATED, 'NR - Not Rate'),
-    (RATED_G, 'G - General Audiences'),
-    (RATED_PG, 'PG – Parental Guidance Suggested'),
-    (RATED_PG13, 'PG-13 – Parents Strongly Cautioned'),
-    (RATED_R, 'R – Restricted'),
-    (RATED_NC17, 'NC-17 – Adults Only'),
-)
+    (NOT_RATED, 'NR - Not Rate'), (RATED_G, 'G - General Audiences'), (RATED_PG, 'PG – Parental Guidance Suggested'),
+    (RATED_PG13, 'PG-13 – Parents Strongly Cautioned'), (RATED_R, 'R – Restricted'),
+    (RATED_NC17, 'NC-17 – Adults Only'),)
 
-CATEGORY_CHOICES = (
-    ('C', 'Comedy'),
-    ('A', 'Action'),
-    ('D', 'Drama'),
-    ('H', 'Horror'),
-)
+CATEGORY_CHOICES = (('C', 'Comedy'), ('A', 'Action'), ('D', 'Drama'), ('H', 'Horror'),)
 
-STATUS_CHOICES = (
-    ('RA', 'recently-added'),
-    ('MW', 'most-watched'),
-    ('TR', 'top-rated'),
-)
+STATUS_CHOICES = (('RA', 'recently-added'), ('MW', 'most-watched'), ('TR', 'top-rated'),)
 
 
 class Movie(models.Model):
@@ -53,6 +40,7 @@ class Movie(models.Model):
     status = models.CharField(choices=STATUS_CHOICES, max_length=2, null=True, blank=False)
     year_of_release = models.DateField(null=True, blank=True)
     view_count = models.IntegerField(default=0)
+    url = models.URLField(blank=False, null=False, default="https://youtu.be/vQ97e_Ybt1U")
 
     def __str__(self):
         return '{} ({})'.format(self.title, self.year_of_release)
@@ -72,10 +60,7 @@ class MovieImage(models.Model):
 class Vote(models.Model):
     UP = 1
     DOWN = -1
-    VALUE_CHOICES = (
-        (UP, "👍"),
-        (DOWN, "👎")
-    )
+    VALUE_CHOICES = ((UP, "👍"), (DOWN, "👎"))
 
     value = models.SmallIntegerField(choices=VALUE_CHOICES)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

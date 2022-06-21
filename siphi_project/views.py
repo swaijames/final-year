@@ -1,6 +1,5 @@
 from profile import Profile
 
-
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
 from django.shortcuts import render, redirect
@@ -21,7 +20,14 @@ from .forms import UserCreationForm
 
 def index(request):
     movies = MovieImage.objects.all().order_by('-uploaded')[:4]
-    return render(request, 'index.html', {"movies": movies})
+    tprate = MovieImage.objects.all().order_by('movie__vote')[:4]
+    Action = MovieImage.objects.all().filter(movie__category="A")[:4]
+    Drama = MovieImage.objects.all().filter(movie__category="D")[:4]
+    Comedy = MovieImage.objects.all().filter(movie__category="C")[:4]
+    Horror = MovieImage.objects.all().filter(movie__category="H")[:4]
+    return render(request, 'index.html',
+                  {"movies": movies, "tprate": tprate, "Action": Action, "Drama": Drama, "Comedy": Comedy,
+                   "Horror": Horror})
 
 
 def signup(request):
