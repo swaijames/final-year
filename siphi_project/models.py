@@ -53,6 +53,7 @@ class Movie(models.Model):
     status = models.CharField(choices=STATUS_CHOICES, max_length=2, null=True, blank=False)
     year_of_release = models.DateField(null=True, blank=True)
     view_count = models.IntegerField(default=0)
+    url = models.URLField(blank=False, null=False)
 
     def __str__(self):
         return '{} ({})'.format(self.title, self.year_of_release)

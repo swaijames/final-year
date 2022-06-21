@@ -1,0 +1,47 @@
+/*
+  Flaticon icon font: Flaticon
+  Creation date: 14/03/2021 08:05
+  */
+
+{
+%
+load
+static
+%
+}
+@font-face {
+    font-family: "Flaticon";
+    src: url("../fonts/Flaticon.8813f68751a6.eot");
+    src: url("../fonts/Flaticond41d.8813f68751a6.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Flaticon.0f6df3ecfc3b.woff2") format("woff2"),
+    url("../fonts/Flaticon.23f03a4ef8e6.woff") format("woff"),
+    url("../fonts/Flaticon.0097241d157a.ttf") format("truetype"),
+    url("../fonts/Flaticon.11d6f2821640.svg#Flaticon") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    @font-face {
+        font-family: "Flaticon";
+        src: url("../fonts/Flaticon.11d6f2821640.svg#Flaticon") format("svg");
+    }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+    font-family: Flaticon;
+    font-style: normal;
+}
+
+.flaticon-television:before {
+    content: "\f100";
+}
+
+.flaticon-globe:before {
+    content: "\f101";
+}
+
+.flaticon-video-camera:before {
+    content: "\f102";
+}

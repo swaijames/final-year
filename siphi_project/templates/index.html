@@ -414,7 +414,40 @@
             {% endfor %}
         </div>
         </div>
-        {% for movie in movz %}
+        {% for movie in Action %}
+            {% if forloop.first %}
+                <div class="row tr-movie-active">{% endif %}
+        <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-three">
+            <div class="movie-item mb-60">
+                <div class="movie-poster">
+                    <a href="{% url 'movie_detail' %}"><img src="{{ movie.image.url }}"
+                                                            alt=""></a>
+                </div>
+                <div class="movie-content">
+                    <div class="top">
+                        <h5 class="title"><a href="{% url 'movie_detail' %}">{{ movie.movie.title }}</a></h5>
+                        <span class="date">2021</span>
+                    </div>
+                    <div class="bottom">
+                        <ul>
+                            <li><span class="quality">hd</span></li>
+                            <li>
+                                <span class="duration"><i class="far fa-clock"></i> 128 min</span>
+                                <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:4 %}
+            </div>
+            <div class=row>{% endif %}
+        {% if forloop.last %}</div>{% endif %}
+        {% endfor %}
+        </div>
+
+     {% for movie in Drama %}
             {% if forloop.first %}
                 <div class="row tr-movie-active">{% endif %}
         <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
@@ -440,7 +473,72 @@
                 </div>
             </div>
         </div>
-        {% if forloop.counter|divisibleby:8 %}
+        {% if forloop.counter|divisibleby:4 %}
+            </div>
+            <div class=row>{% endif %}
+        {% if forloop.last %}</div>{% endif %}
+        {% endfor %}
+        </div>
+     {% for movie in Comedy %}
+            {% if forloop.first %}
+                <div class="row tr-movie-active">{% endif %}
+        <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one">
+            <div class="movie-item mb-60">
+                <div class="movie-poster">
+                    <a href="{% url 'movie_detail' %}"><img src="{{ movie.image.url }}"
+                                                            alt=""></a>
+                </div>
+                <div class="movie-content">
+                    <div class="top">
+                        <h5 class="title"><a href="{% url 'movie_detail' %}">{{ movie.movie.title }}</a></h5>
+                        <span class="date">2021</span>
+                    </div>
+                    <div class="bottom">
+                        <ul>
+                            <li><span class="quality">hd</span></li>
+                            <li>
+                                <span class="duration"><i class="far fa-clock"></i> 128 min</span>
+                                <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:4 %}
+            </div>
+            <div class=row>{% endif %}
+        {% if forloop.last %}</div>{% endif %}
+        {% endfor %}
+        </div>
+
+     {% for movie in Horror %}
+            {% if forloop.first %}
+                <div class="row tr-movie-active">{% endif %}
+        <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-three">
+            <div class="movie-item mb-60">
+                <div class="movie-poster">
+                    <a href="{% url 'movie_detail' %}"><img src="{{ movie.image.url }}"
+                                                            alt=""></a>
+                </div>
+                <div class="movie-content">
+                    <div class="top">
+                        <h5 class="title"><a href="{% url 'movie_detail' %}">{{ movie.movie.title }}</a></h5>
+                        <span class="date">2021</span>
+                    </div>
+                    <div class="bottom">
+                        <ul>
+                            <li><span class="quality">hd</span></li>
+                            <li>
+                                <span class="duration"><i class="far fa-clock"></i> 128 min</span>
+                                <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if forloop.counter|divisibleby:4 %}
             </div>
             <div class=row>{% endif %}
         {% if forloop.last %}</div>{% endif %}

@@ -1,1 +1,1 @@
-web gunicorn final-year.wsgi:application --log-file -
+web gunicorn final-year.wsgi:application
