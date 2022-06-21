@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>SwahiliFlx</title>
-    <meta name="description" content="">
+    <meta name="description" content="swahiliflx">
+    <meta http-equiv="refresh" content="30">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}" alt="logo">
@@ -380,196 +381,183 @@
                     </div>
                 </div>
             </div>
-            {% for movie in movies %}
-            {% if forloop.first %}
-            <div class="row tr-movie-active">
-                <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
-                    <div class="movie-item mb-60">
-                        <div class="movie-poster">
-                            <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster01.jpg' %}"
-                                                                    alt=""></a>
-                        </div>
-                        <div class="movie-content">
-                            <div class="top">
-                                <h5 class="title"><a href="{% url 'movie_detail' %}">OFF SIDE</a></h5>
-                                <span class="date">2021</span>
-                            </div>
-                            <div class="bottom">
-                                <ul>
-                                    <li><span class="quality">hd</span></li>
-                                    <li>
-                                        <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                        <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+            {% for movie in movz %}
+                {% if forloop.first %}
+                    <div class="row tr-movie-active">{% endif %}
+            <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-">
+                <div class="movie-item mb-60">
+                    <div class="movie-poster">
+                        <a href="{% url 'movie_detail' %}"><img src="{{ movie.image.url }}"
+                                                                alt=""></a>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one cat-three">
-                    <div class="movie-item mb-60">
-                        <div class="movie-poster">
-                            <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster02.jpg' %}"
-                                                                    alt=""></a>
+                    <div class="movie-content">
+                        <div class="top">
+                            <h5 class="title"><a href="{% url 'movie_detail' %}">{{ movie.movie.title }}</a></h5>
+                            <span class="date">2021</span>
                         </div>
-                        <div class="movie-content">
-                            <div class="top">
-                                <h5 class="title"><a href="{% url 'movie_detail' %}">Bikira Kidawa</a></h5>
-                                <span class="date">2021</span>
-                            </div>
-                            <div class="bottom">
-                                <ul>
-                                    <li><span class="quality">4k</span></li>
-                                    <li>
-                                        <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                        <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
-                    <div class="movie-item mb-60">
-                        <div class="movie-poster">
-                            <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster03.jpg' %}"
-                                                                    alt=""></a>
-                        </div>
-                        <div class="movie-content">
-                            <div class="top">
-                                <h5 class="title"><a href="{% url 'movie_detail' %}">Hakuna Matata</a></h5>
-                                <span class="date">2021</span>
-                            </div>
-                            <div class="bottom">
-                                <ul>
-                                    <li><span class="quality">hd</span></li>
-                                    <li>
-                                        <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                        <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one cat-three">
-                    <div class="movie-item mb-60">
-                        <div class="movie-poster">
-                            <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster04.jpg' %}"
-                                                                    alt=""></a>
-                        </div>
-                        <div class="movie-content">
-                            <div class="top">
-                                <h5 class="title"><a href="{% url 'movie_detail' %}">Madame</a></h5>
-                                <span class="date">2021</span>
-                            </div>
-                            <div class="bottom">
-                                <ul>
-                                    <li><span class="quality">8K</span></li>
-                                    <li>
-                                        <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                        <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
-                    <div class="movie-item mb-60">
-                        <div class="movie-poster">
-                            <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster05.jpg' %}"
-                                                                    alt=""></a>
-                        </div>
-                        <div class="movie-content">
-                            <div class="top">
-                                <h5 class="title"><a href="{% url 'movie_detail' %}">The Cooking</a></h5>
-                                <span class="date">2021</span>
-                            </div>
-                            <div class="bottom">
-                                <ul>
-                                    <li><span class="quality">3D</span></li>
-                                    <li>
-                                        <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                        <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one cat-three">
-                    <div class="movie-item mb-60">
-                        <div class="movie-poster">
-                            <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster06.jpg' %}"
-                                                                    alt=""></a>
-                        </div>
-                        <div class="movie-content">
-                            <div class="top">
-                                <h5 class="title"><a href="{% url 'movie_detail' %}">The Hikaru</a></h5>
-                                <span class="date">2021</span>
-                            </div>
-                            <div class="bottom">
-                                <ul>
-                                    <li><span class="quality">hd</span></li>
-                                    <li>
-                                        <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                        <span class="rating"><i class="fas fa-thumbs-up"></i> 3.9</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
-                    <div class="movie-item mb-60">
-                        <div class="movie-poster">
-                            <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster07.jpg' %}"
-                                                                    alt=""></a>
-                        </div>
-                        <div class="movie-content">
-                            <div class="top">
-                                <h5 class="title"><a href="{% url 'movie_detail' %}">Life Quotes</a></h5>
-                                <span class="date">2021</span>
-                            </div>
-                            <div class="bottom">
-                                <ul>
-                                    <li><span class="quality">4K</span></li>
-                                    <li>
-                                        <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                        <span class="rating"><i class="fas fa-thumbs-up"></i> 3.9</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one cat-three">
-                    <div class="movie-item mb-60">
-                        <div class="movie-poster">
-                            <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster08.jpg' %}"
-                                                                    alt=""></a>
-                        </div>
-                        <div class="movie-content">
-                            <div class="top">
-                                <h5 class="title"><a href="{% url 'movie_detail' %}">The Beachball</a></h5>
-                                <span class="date">2021</span>
-                            </div>
-                            <div class="bottom">
-                                <ul>
-                                    <li><span class="quality">4K</span></li>
-                                    <li>
-                                        <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                        <span class="rating"><i class="fas fa-thumbs-up"></i> 3.9</span>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="bottom">
+                            <ul>
+                                <li><span class="quality">hd</span></li>
+                                <li>
+                                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
+                                    <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
+            {% if forloop.counter|divisibleby:8 %}
+                </div>
+                <div class=row>{% endif %}
+            {% if forloop.last %}</div>{% endif %}
+            {% endfor %}
+        </div>
         </div>
     </section>
+
+
+    {#        <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">#}
+    {#            <div class="movie-item mb-60">#}
+    {#                <div class="movie-poster">#}
+    {#                    <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster03.jpg' %}"#}
+    {#                                                            alt=""></a>#}
+    {#                </div>#}
+    {#                <div class="movie-content">#}
+    {#                    <div class="top">#}
+    {#                        <h5 class="title"><a href="{% url 'movie_detail' %}">Hakuna Matata</a></h5>#}
+    {#                        <span class="date">2021</span>#}
+    {#                    </div>#}
+    {#                    <div class="bottom">#}
+    {#                        <ul>#}
+    {#                            <li><span class="quality">hd</span></li>#}
+    {#                            <li>#}
+    {#                                <span class="duration"><i class="far fa-clock"></i> 128 min</span>#}
+    {#                                <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>#}
+    {#                            </li>#}
+    {#                        </ul>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one cat-three">#}
+    {#            <div class="movie-item mb-60">#}
+    {#                <div class="movie-poster">#}
+    {#                    <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster04.jpg' %}"#}
+    {#                                                            alt=""></a>#}
+    {#                </div>#}
+    {#                <div class="movie-content">#}
+    {#                    <div class="top">#}
+    {#                        <h5 class="title"><a href="{% url 'movie_detail' %}">Madame</a></h5>#}
+    {#                        <span class="date">2021</span>#}
+    {#                    </div>#}
+    {#                    <div class="bottom">#}
+    {#                        <ul>#}
+    {#                            <li><span class="quality">8K</span></li>#}
+    {#                            <li>#}
+    {#                                <span class="duration"><i class="far fa-clock"></i> 128 min</span>#}
+    {#                                <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>#}
+    {#                            </li>#}
+    {#                        </ul>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">#}
+    {#            <div class="movie-item mb-60">#}
+    {#                <div class="movie-poster">#}
+    {#                    <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster05.jpg' %}"#}
+    {#                                                            alt=""></a>#}
+    {#                </div>#}
+    {#                <div class="movie-content">#}
+    {#                    <div class="top">#}
+    {#                        <h5 class="title"><a href="{% url 'movie_detail' %}">The Cooking</a></h5>#}
+    {#                        <span class="date">2021</span>#}
+    {#                    </div>#}
+    {#                    <div class="bottom">#}
+    {#                        <ul>#}
+    {#                            <li><span class="quality">3D</span></li>#}
+    {#                            <li>#}
+    {#                                <span class="duration"><i class="far fa-clock"></i> 128 min</span>#}
+    {#                                <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>#}
+    {#                            </li>#}
+    {#                        </ul>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one cat-three">#}
+    {#            <div class="movie-item mb-60">#}
+    {#                <div class="movie-poster">#}
+    {#                    <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster06.jpg' %}"#}
+    {#                                                            alt=""></a>#}
+    {#                </div>#}
+    {#                <div class="movie-content">#}
+    {#                    <div class="top">#}
+    {#                        <h5 class="title"><a href="{% url 'movie_detail' %}">The Hikaru</a></h5>#}
+    {#                        <span class="date">2021</span>#}
+    {#                    </div>#}
+    {#                    <div class="bottom">#}
+    {#                        <ul>#}
+    {#                            <li><span class="quality">hd</span></li>#}
+    {#                            <li>#}
+    {#                                <span class="duration"><i class="far fa-clock"></i> 128 min</span>#}
+    {#                                <span class="rating"><i class="fas fa-thumbs-up"></i> 3.9</span>#}
+    {#                            </li>#}
+    {#                        </ul>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">#}
+    {#            <div class="movie-item mb-60">#}
+    {#                <div class="movie-poster">#}
+    {#                    <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster07.jpg' %}"#}
+    {#                                                            alt=""></a>#}
+    {#                </div>#}
+    {#                <div class="movie-content">#}
+    {#                    <div class="top">#}
+    {#                        <h5 class="title"><a href="{% url 'movie_detail' %}">Life Quotes</a></h5>#}
+    {#                        <span class="date">2021</span>#}
+    {#                    </div>#}
+    {#                    <div class="bottom">#}
+    {#                        <ul>#}
+    {#                            <li><span class="quality">4K</span></li>#}
+    {#                            <li>#}
+    {#                                <span class="duration"><i class="far fa-clock"></i> 128 min</span>#}
+    {#                                <span class="rating"><i class="fas fa-thumbs-up"></i> 3.9</span>#}
+    {#                            </li>#}
+    {#                        </ul>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one cat-three">#}
+    {#            <div class="movie-item mb-60">#}
+    {#                <div class="movie-poster">#}
+    {#                    <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster08.jpg' %}"#}
+    {#                                                            alt=""></a>#}
+    {#                </div>#}
+    {#                <div class="movie-content">#}
+    {#                    <div class="top">#}
+    {#                        <h5 class="title"><a href="{% url 'movie_detail' %}">The Beachball</a></h5>#}
+    {#                        <span class="date">2021</span>#}
+    {#                    </div>#}
+    {#                    <div class="bottom">#}
+    {#                        <ul>#}
+    {#                            <li><span class="quality">4K</span></li>#}
+    {#                            <li>#}
+    {#                                <span class="duration"><i class="far fa-clock"></i> 128 min</span>#}
+    {#                                <span class="rating"><i class="fas fa-thumbs-up"></i> 3.9</span>#}
+    {#                            </li>#}
+    {#                        </ul>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        </div>#}
+    {#        </div>#}
+
 
     <!-- top-rated-movie-end -->
 
