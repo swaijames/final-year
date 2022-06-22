@@ -21,8 +21,13 @@ from .forms import UserCreationForm
 def index(request):
     movies = MovieImage.objects.all().order_by('-uploaded')[:4]
     tprate = MovieImage.objects.all().order_by('movie__vote')[:4]
-    movz = MovieImage.objects.all().order_by('-uploaded')[:8]
-    return render(request, 'index.html', {"tprate": tprate, "movz": movz, "movies": movies})
+    Action = MovieImage.objects.all().filter(movie__category="A")[:4]
+    Drama = MovieImage.objects.all().filter(movie__category="D")[:4]
+    Comedy = MovieImage.objects.all().filter(movie__category="C")[:4]
+    Horror = MovieImage.objects.all().filter(movie__category="H")[:4]
+    return render(request, 'index.html',
+                  {"tprate": tprate, "Action": Action, "Drama": Drama, "Comedy": Comedy, "Horror": Horror,
+                   "movies": movies})
 
 
 def signup(request):
