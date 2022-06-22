@@ -26,8 +26,8 @@ def index(request):
     Comedy = MovieImage.objects.all().filter(movie__category="C")[:4]
     Horror = MovieImage.objects.all().filter(movie__category="H")[:4]
     return render(request, 'index.html',
-                  {"tprate": tprate, "Action": Action, "Drama": Drama, "Comedy": Comedy, "Horror": Horror,
-                   "movies": movies})
+                  {"movies": movies, "tprate": tprate, "Action": Action, "Drama": Drama, "Comedy": Comedy,
+                   "Horror": Horror})
 
 
 def signup(request):
