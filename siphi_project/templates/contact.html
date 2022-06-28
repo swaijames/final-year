@@ -26,6 +26,19 @@
     <link rel="stylesheet" href="{% static 'css/default.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+        <script>
+    (function(d, w, c) {
+        w.ChatraID = 'hWCPZd2QezpMnc8pJ';
+        var s = d.createElement('script');
+        w[c] = w[c] || function() {
+            (w[c].q = w[c].q || []).push(arguments);
+        };
+        s.async = true;
+        s.src = 'https://call.chatra.io/chatra.js';
+        if (d.head) d.head.appendChild(s);
+    })(document, window, 'Chatra');
+</script>
 </head>
 <body>
 
@@ -84,8 +97,14 @@
                                             </select>
                                         </form>
                                     </li>
-                                    <li class="header-btn"><a href="{% url 'signin' %}" class="btn">Sign In</a></li>
-                                </ul>
+                                    {% if user.is_authenticated %}
+                                        <li class="menu-item-has-children"><a href="{% url 'signout' %}">sign out</a>
+                                        </li>
+                                        <li class="menu-item-has-children">{{ request.user.username }}</li>
+                                    {% else %}
+                                        <li class="header-btn"><a href="{% url 'signin' %}" class="btn">Sign In</a></li>
+                                        </ul>
+                                    {% endif %}
                             </div>
                         </nav>
                     </div>

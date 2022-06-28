@@ -1,5 +1,5 @@
 from profile import Profile
-
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.hashers import make_password
 from django.shortcuts import render, redirect
@@ -8,26 +8,33 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.conf import settings
 from django.contrib import messages
+# from hitcount.views import HitCountDetailView
+
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 import uuid
-
+from .forms import RateForm
 from .models import *
-from .forms import UserCreationForm
 
 
-# from .filters import OrderFilter
+# from .forms import UserCreationForm
+
+
+# from .filters import MovieFilter
 
 
 def index(request):
-    movies = MovieImage.objects.all().order_by('-uploaded')[:4]
-    tprate = MovieImage.objects.all().order_by('movie__vote')[:4]
-    Action = MovieImage.objects.all().filter(movie__category="A")[:4]
-    Drama = MovieImage.objects.all().filter(movie__category="D")[:4]
-    Comedy = MovieImage.objects.all().filter(movie__category="C")[:4]
-    Horror = MovieImage.objects.all().filter(movie__category="H")[:4]
+    movies = MovieImage.objects.order_by('-uploaded')[:4]
+    mwatched = MovieImage.objects.filter(movie__status="MW")[:4]
+    tprate = MovieImage.objects.filter(movie__status="TR")[:4]
+    Action = MovieImage.objects.filter(movie__category="A")[:4]
+    Drama = MovieImage.objects.filter(movie__category="D")[:4]
+    Comedy = MovieImage.objects.filter(movie__category="C")[:4]
+    Horror = MovieImage.objects.filter(movie__category="H")[:4]
+    hvote = MovieImage.objects.all().filter(movie__stars__gte=3)[:4]
     return render(request, 'index.html',
-                  {"movies": movies, "tprate": tprate, "Action": Action, "Drama": Drama, "Comedy": Comedy,
-                   "Horror": Horror})
+                  {"movies": movies, "mwatched": mwatched, "tprate": tprate, "Action": Action, "Drama": Drama,
+                   "Comedy": Comedy,
+                   "Horror": Horror, "hvote": hvote})
 
 
 def signup(request):
@@ -102,9 +109,29 @@ def signout(request):
 
 
 def movie(request):
-    return render(request, 'movie.html')
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['filter'] = MovieFilter(self.request.GET, queryset=self.get_queryset())
+
+    if 'search' in request.GET:
+        search = request.GET['search']
+
+        Drama = MovieImage.objects.filter(movie__title__icontains=search)
+        Horror = MovieImage.objects.filter(movie__title__icontains=search)
+        Comedy = MovieImage.objects.filter(movie__title__icontains=search)
+        Action = MovieImage.objects.filter(movie__title__icontains=search)
+    else:
+        Drama = MovieImage.objects.filter(movie__category="D")[:4]
+        Horror = MovieImage.objects.filter(movie__category="H")[:4]
+        Comedy = MovieImage.objects.filter(movie__category="C")[:4]
+        Action = MovieImage.objects.filter(movie__category="A")[:4]
+
+    return render(request, 'movie.html',
+                  {"Action": Action, "Drama": Drama, "Comedy": Comedy,
+                   "Horror": Horror})
 
 
+@login_required
 def contact(request):
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -124,13 +151,34 @@ def contact(request):
 
            from: {}
              '''.format(data['message'], data['email'])
-        send_mail(data['subject'], messager, '', ['pinchkiller@outlook.com'])
+        send_mail(data['subject'], messager, '', ['swahilisinema@gmail.com'])
         messages.success(request, "data sent to email")
     return render(request, 'contact.html')
 
 
-def movie_details(request):
-    return render(request, 'movie-details.html')
+def movie_details(request, id):
+    video = MovieImage.objects.get(movie__id=id)
+    print(id)
+    hvote = MovieImage.objects.all().filter(movie__stars__gte=3)[:4]
+    if request.method == "POST":
+        form = RateForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+    else:
+        form = RateForm()
+    # count_hit = True
+    return render(request, 'movie-details.html', {"form": form, "video": video, "hvote": hvote})
+
+
+def update_rate(request, id):
+    video = MovieImage.objects.get(movie__id=id)
+    if request.method == "POST":
+        form = RateForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+    else:
+        form = RateForm()
+    return render(request, 'movie-details.html', {"form": form, "video": video})
 
 
 def change_password(request, uid):
@@ -171,4 +219,19 @@ def reset_password(request):
 
 def password_reset_done(request):
     return render(request, './form/password_reset_done.html')
+
+
 # Create your views here.
+
+@login_required
+def setcookie(request):
+    html = HttpResponse("<h1>welcome to swahiliflx movies</h1>")
+    html.set_cookie('swahiliflx', 'We are setting a cookie', max_age=None)
+    return html
+
+
+@login_required
+def showcookie(request):
+    show = request.COOKIES['swahiliflx']
+    html = "<center> New Page <br>{0}</center>".format(show)
+    return HttpResponse(html)

@@ -20,8 +20,16 @@ from django.urls import path, include
 from project_final import settings
 
 urlpatterns = [
+    # path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
+    # path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
     path('', include('siphi_project.urls')),
     path('admin/', admin.site.urls),
 ]
+# urlpatterns = patterns(
+#     '',
+#     path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
+#     path('admin/', include(admin.site.urls)),
+#     ...
+# )
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.db.models.aggregates import Sum
 from django.conf import settings
+from django.contrib.contenttypes.fields import GenericRelation
+# from hitcount.models import HitCountMixin, HitCount
 
 
 class Profile(models.Model):
@@ -31,19 +33,35 @@ CATEGORY_CHOICES = (('C', 'Comedy'), ('A', 'Action'), ('D', 'Drama'), ('H', 'Hor
 
 STATUS_CHOICES = (('RA', 'recently-added'), ('MW', 'most-watched'), ('TR', 'top-rated'),)
 
+QUALITY_CHOICE = (('HD', 'high-definition'), ('SD', 'standard-definition'), ('FHD', 'full-high-definition'),
+                  ('QHD', 'Quad-high-definition'),)
+
+rate_choices = (
+    (1, 1),
+    (2, 2),
+    (3, 3),
+    (4, 4),
+    (5, 5)
+)
+
 
 class Movie(models.Model):
+    id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=200, blank=False, null=False)
     description = models.TextField(max_length=5000, blank=False, null=False)
     rating = models.IntegerField(choices=RATINGS, default=NOT_RATED, blank=False, null=False)
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=1, null=True, blank=False)
     status = models.CharField(choices=STATUS_CHOICES, max_length=2, null=True, blank=False)
     year_of_release = models.DateField(null=True, blank=True)
-    view_count = models.IntegerField(default=0)
+    stars = models.IntegerField(choices=rate_choices, default=1)
+    view_count = models.IntegerField(default=0, max_length=10)
     url = models.URLField(blank=False, null=False, default="https://youtu.be/vQ97e_Ybt1U")
+    quality = models.CharField(choices=QUALITY_CHOICE, null=True, blank=False, max_length=5)
+    # hit_count_generic = GenericRelation(HitCount, object_id_field='object_pk',
+    #                                     related_query_name='hit_count_generic_relation')
 
     def __str__(self):
-        return '{} ({})'.format(self.title, self.year_of_release)
+        return '{} ({}) ({})'.format(self.title, self.year_of_release, self.id)
 
 
 #
@@ -51,7 +69,10 @@ class MovieImage(models.Model):
     image = models.ImageField(upload_to='Movie')
     uploaded = models.DateTimeField(auto_now_add=True)
     movie = models.ForeignKey('Movie', on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey('profile', on_delete=models.CASCADE)
+
+    def check_admin(user):
+        return user.user
 
     def __str__(self):
         return '{}'.format(self.movie)

@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+
+
 from django.conf.global_settings import SERVER_EMAIL
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -34,9 +34,12 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'admin_interface',
-    'colorfield',
 
+    'jazzmin',
+
+    # 'jet.dashboard',
+    # 'jet',
+    'django_filters',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'siphi_project',
+    # 'hitcount',
 
 ]
 
@@ -129,9 +133,9 @@ MEDIA_URL = "/media/"
 
 # email Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.office365.com'
-EMAIL_HOST_USER = 'pinchkiller@outlook.com'
-EMAIL_HOST_PASSWORD = '0627469749rJ'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'swahilisinema@gmail.com'
+EMAIL_HOST_PASSWORD = 'jmaofnedzqamwffs'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False

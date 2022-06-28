@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>SwahiliFlx</title>
-    <meta name="description" content="">
+    <meta name="description" content="swahiliflx">
+    <meta http-equiv="refresh" content="80">
+    <META NAME="Author" CONTENT="swahiliflx team">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css">
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.png' %}" alt="logo">
@@ -24,6 +26,19 @@
     <link rel="stylesheet" href="{% static 'css/default.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+    <script>
+        (function (d, w, c) {
+            w.ChatraID = 'hWCPZd2QezpMnc8pJ';
+            var s = d.createElement('script');
+            w[c] = w[c] || function () {
+                (w[c].q = w[c].q || []).push(arguments);
+            };
+            s.async = true;
+            s.src = 'https://call.chatra.io/chatra.js';
+            if (d.head) d.head.appendChild(s);
+        })(document, window, 'Chatra');
+    </script>
 </head>
 <body>
 
@@ -87,6 +102,35 @@
                                     {% if user.is_authenticated %}
                                         <li class="menu-item-has-children"><a href="{% url 'signout' %}">sign out</a>
                                         </li>
+
+
+                                        {#                                        <li class="nav-item dropdown">#}
+                                        {#                                            <a class="nav-link pt-1 px-0" href="#" role="button" data-toggle="dropdown"#}
+                                        {#                                               aria-haspopup="true" aria-expanded="false">#}
+                                        {#                                                <div class="media d-flex align-items-center">#}
+                                        {#                                                    <img class="user-avatar md-avatar rounded-circle"#}
+                                        {#                                                         alt="Image placeholder"#}
+                                        {#                                                         src="{{ request.user.profile.get_avatar }}">#}
+                                        {#                                                    <div class="media-body ml-2 text-dark align-items-center d-none d-lg-block">#}
+                                        {#                          <span class="mb-0 font-small font-weight-bold">#}
+                                        {#                            {{ request.user.username }}#}
+                                        {#                          </span>#}
+                                        {#                                                        {% else %}#}
+                                        {##}
+                                        {#                                                    </div>#}
+                                        {#                                                </div>#}
+                                        {#                                            </a>#}
+                                        {#                                            <div class="dropdown-menu dashboard-dropdown dropdown-menu-right mt-2">#}
+                                        {#                                                <a class="dropdown-item font-weight-bold"#}
+                                        {#                                                   href="{% url 'profile' %}"><span#}
+                                        {#                                                        class="fas fa-cog"></span>Settings</a>#}
+                                        {#                                                <div role="separator" class="dropdown-divider"></div>#}
+                                        {#                                                <a class="dropdown-item font-weight-bold" href="{% url 'signout' %}">#}
+                                        {#                                                    <span class="fas fa-sign-out-alt text-danger"></span>Logout</a>#}
+                                        {#                                            </div>#}
+                                        {#                                        </li>#}
+
+
                                         <li class="menu-item-has-children">{{ request.user.username }}</li>
                                     {% else %}
                                         <li class="header-btn"><a href="{% url 'signin' %}" class="btn">Sign In</a></li>
@@ -198,15 +242,15 @@
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active" id="tvShow-tab" data-toggle="tab" href="#tvShow" role="tab"
-                                   aria-controls="tvShow" aria-selected="true">Popular</a>
+                                   aria-controls="tvShow" aria-selected="true">Recent added</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="movies-tab" data-toggle="tab" href="#movies" role="tab"
-                                   aria-controls="movies" aria-selected="false">Movies</a>
+                                   aria-controls="movies" aria-selected="false">Most watched</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="anime-tab" data-toggle="tab" href="#anime" role="tab"
-                                   aria-controls="anime" aria-selected="false">Anime</a>
+                                   aria-controls="anime" aria-selected="false">Top Rated</a>
                             </li>
                         </ul>
                     </div>
@@ -219,19 +263,20 @@
                     <div class="ucm-active owl-carousel">{% endif %}
             <div class="movie-item mb-50">
                 <div class="movie-poster">
-                    <a href="{% url 'movie_detail' %}"><img src="{{ movie.image.url }}"
-                                                            alt="pic"></a>
+                    <a href="{% url 'movie_detail' movie.movie.id %}"><img src="{{ movie.image.url }}"
+                                                                           alt="pic"></a>
                 </div>
                 <div class="movie-content">
                     <div class="top">
-                        <h5 class="title"><a href="{% url 'movie_detail' %}"></a>{{ movie.movie.title }}</h5>
-                        <span class="date">2022</span></div>
+                        <h5 class="title"><a href="{% url 'movie_detail' movie.id %}"></a>{{ movie.movie.title }}</h5>
+                        <span class="date">{{ movie.movie.year_of_release }}</span></div>
                     <div class="bottom">
                         <ul>
-                            <li><span class="quality">hd</span></li>
+                            <li><span class="quality">{{ movie.movie.quality }}</span></li>
                             <li>
                                 <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
+                                <span class="rating"><i
+                                        class="fas fa-thumbs-up"></i> {{ movie.movie.view_count }}</span>
                             </li>
                         </ul>
                     </div>
@@ -243,25 +288,26 @@
             {% if forloop.last %}</div>{% endif %}
             {% endfor %}
             </div>
-            {% for movie in movies %}
+            {% for movie in mwatched %}
                 {% if forloop.first %}
                     <div class="tab-pane fade" id="movies" role="tabpanel" aria-labelledby="movies-tab">
                     <div class="ucm-active owl-carousel">{% endif %}
             <div class="movie-item mb-50">
                 <div class="movie-poster">
-                    <a href="{% url 'movie_detail' %}"><img src="{{ movie.image.url }}"
-                                                            alt="pic"></a>
+                    <a href="{% url 'movie_detail' movie.movie.id %}"><img src="{{ movie.image.url }}"
+                                                                           alt="pic"></a>
                 </div>
                 <div class="movie-content">
                     <div class="top">
-                        <h5 class="title"><a href="{% url 'movie_detail' %}"></a>{{ movie.movie.title }}</h5>
-                        <span class="date">2022</span></div>
+                        <h5 class="title"><a href="{% url 'movie_detail' movie.id %}"></a>{{ movie.movie.title }}</h5>
+                        <span class="date">{{ movie.movie.year_of_release }}</span></div>
                     <div class="bottom">
                         <ul>
-                            <li><span class="quality">hd</span></li>
+                            <li><span class="quality">{{ movie.movie.quality }}</span></li>
                             <li>
                                 <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
+                                <span class="rating"><i
+                                        class="fas fa-thumbs-up"></i> {{ movie.movie.view_count }}</span>
                             </li>
                         </ul>
                     </div>
@@ -273,25 +319,25 @@
             {% if forloop.last %}</div>{% endif %}
             {% endfor %}
             </div>
-            {% for movie in movies %}
+            {% for movie in tprate %}
                 {% if forloop.first %}
                     <div class="tab-pane fade" id="anime" role="tabpanel" aria-labelledby="anime-tab">
                     <div class="ucm-active owl-carousel">{% endif %}
             <div class="movie-item mb-50">
                 <div class="movie-poster">
-                    <a href="{% url 'movie_detail' %}"><img src="{{ movie.image.url }}"
-                                                            alt="pic"></a>
+                    <a href="{% url 'movie_detail' movie.movie.id %}"><img src="{{ movie.image.url }}"
+                                                                           alt="pic"></a>
                 </div>
                 <div class="movie-content">
                     <div class="top">
-                        <h5 class="title"><a href="{% url 'movie_detail' %}"></a>{{ movie.movie.title }}</h5>
-                        <span class="date">2022</span></div>
+                        <h5 class="title"><a href="{% url 'movie_detail' movie.id %}"></a>{{ movie.movie.title }}</h5>
+                        <span class="date">{{ movie.movie.year_of_release }}</span></div>
                     <div class="bottom">
                         <ul>
-                            <li><span class="quality">hd</span></li>
+                            <li><span class="quality">{{ movie.movie.quality }}</span></li>
                             <li>
                                 <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
+                                <span class="rating"><i class="fas fa-thumbs-up"></i>{{ movie.movie.view_count }}</span>
                             </li>
                         </ul>
                     </div>
@@ -384,22 +430,26 @@
                 {% if forloop.first %}
                     <div class="row tr-movie-active">{% endif %}
             <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-two">
-                <div class="movie-item mb-60">
+                <div class="movie-item mb-50">
                     <div class="movie-poster">
-                        <a href="{% url 'movie_detail' %}"><img src="{{ movie.image.url }}"
-                                                                alt=""></a>
+                        <a href="{% url 'movie_detail' movie.movie.id %}"><img style="width:100%"
+                                                                               src="{{ movie.image.url }}"
+                                                                               alt=""></a>
                     </div>
                     <div class="movie-content">
                         <div class="top">
-                            <h5 class="title"><a href="{% url 'movie_detail' %}">{{ movie.movie.title }}</a></h5>
-                            <span class="date">2021</span>
+                            <h5 class="title"><a
+                                    href="{% url 'movie_detail' movie.movie.id %}">{{ movie.movie.title }}</a>
+                            </h5>
+                            <span class="date">{{ movie.movie.year_of_release }}</span>
                         </div>
                         <div class="bottom">
                             <ul>
-                                <li><span class="quality">hd</span></li>
+                                <li><span class="quality">{{ movie.movie.quality }}</span></li>
                                 <li>
                                     <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                    <span class="rating"><i class="fas fa-thumbs-up"></i>{{ movie.movie.view_count }}</span>
+                                    <span class="rating"><i
+                                            class="fas fa-thumbs-up"></i>{{ movie.movie.view_count }}</span>
                                 </li>
                             </ul>
                         </div>
@@ -415,22 +465,26 @@
                 {% if forloop.first %}
                     <div class="row tr-movie-active">{% endif %}
             <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-one">
-                <div class="movie-item mb-60">
+                <div class="movie-item mb-50">
                     <div class="movie-poster">
-                        <a href="{% url 'movie_detail' %}"><img src="{{ movie.image.url }}"
-                                                                alt=""></a>
+                        <a href="{% url 'movie_detail' movie.movie.id %}"><img style="width:100%"
+                                                                               src="{{ movie.image.url }}"
+                                                                               alt=""></a>
                     </div>
                     <div class="movie-content">
                         <div class="top">
-                            <h5 class="title"><a href="{% url 'movie_detail' %}">{{ movie.movie.title }}</a></h5>
-                            <span class="date">2021</span>
+                            <h5 class="title"><a
+                                    href="{% url 'movie_detail' movie.movie.id %}">{{ movie.movie.title }}</a>
+                            </h5>
+                            <span class="date">{{ movie.movie.year_of_release }}</span>
                         </div>
                         <div class="bottom">
                             <ul>
-                                <li><span class="quality">hd</span></li>
+                                <li><span class="quality">{{ movie.movie.quality }}</span></li>
                                 <li>
                                     <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                    <span class="rating"><i class="fas fa-thumbs-up"></i>{{ movie.movie.view_count }}</span>
+                                    <span class="rating"><i
+                                            class="fas fa-thumbs-up"></i>{{ movie.movie.view_count }}</span>
                                 </li>
                             </ul>
                         </div>
@@ -446,22 +500,26 @@
                 {% if forloop.first %}
                     <div class="row tr-movie-active">{% endif %}
             <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-three">
-                <div class="movie-item mb-60">
+                <div class="movie-item mb-50">
                     <div class="movie-poster">
-                        <a href="{% url 'movie_detail' %}"><img src="{{ movie.image.url }}"
-                                                                alt=""></a>
+                        <a href="{% url 'movie_detail' movie.movie.id %}"><img style="width:100%"
+                                                                               src="{{ movie.image.url }}"
+                                                                               alt=""></a>
                     </div>
                     <div class="movie-content">
                         <div class="top">
-                            <h5 class="title"><a href="{% url 'movie_detail' %}">{{ movie.movie.title }}</a></h5>
-                            <span class="date">2021</span>
+                            <h5 class="title"><a
+                                    href="{% url 'movie_detail' movie.movie.id %}">{{ movie.movie.title }}</a>
+                            </h5>
+                            <span class="date">{{ movie.movie.year_of_release }}</span>
                         </div>
                         <div class="bottom">
                             <ul>
-                                <li><span class="quality">hd</span></li>
+                                <li><span class="quality">{{ movie.movie.quality }}</span></li>
                                 <li>
                                     <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                    <span class="rating"><i class="fas fa-thumbs-up"></i>{{ movie.movie.view_count }}</span>
+                                    <span class="rating"><i
+                                            class="fas fa-thumbs-up"></i>{{ movie.movie.view_count }}</span>
                                 </li>
                             </ul>
                         </div>
@@ -477,22 +535,25 @@
                 {% if forloop.first %}
                     <div class="row tr-movie-active">{% endif %}
             <div class="col-xl-3 col-lg-4 col-sm-6 grid-item grid-sizer cat-four">
-                <div class="movie-item mb-60">
+                <div class="movie-item mb-50">
                     <div class="movie-poster">
-                        <a href="{% url 'movie_detail' %}"><img src="{{ movie.image.url }}"
-                                                                alt=""></a>
+                        <a href="{% url 'movie_detail' movie.movie.id %}"><img style="width:100%"
+                                                                               src="{{ movie.image.url }}"
+                                                                               alt=""></a>
                     </div>
                     <div class="movie-content">
                         <div class="top">
-                            <h5 class="title"><a href="{% url 'movie_detail' %}">{{ movie.movie.title }}</a></h5>
-                            <span class="date">2021</span>
+                            <h5 class="title"><a href="{% url 'movie_detail' movie.id %}">{{ movie.movie.title }}</a>
+                            </h5>
+                            <span class="date">{{ movie.movie.year_of_release }}</span>
                         </div>
                         <div class="bottom">
                             <ul>
-                                <li><span class="quality">hd</span></li>
+                                <li><span class="quality">{{ movie.movie.quality }}</span></li>
                                 <li>
                                     <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                    <span class="rating"><i class="fas fa-thumbs-up"></i>{{ movie.movie.view_count }}</span>
+                                    <span class="rating"><i
+                                            class="fas fa-thumbs-up"></i>{{ movie.movie.view_count }}</span>
                                 </li>
                             </ul>
                         </div>
@@ -720,100 +781,39 @@
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-xl-3 col-lg-4 col-sm-6">
-                    <div class="movie-item mb-50">
-                        <div class="movie-poster">
-                            <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster09.jpg' %}"
-                                                                    alt=""></a>
-                        </div>
-                        <div class="movie-content">
-                            <div class="top">
-                                <h5 class="title"><a href="{% url 'movie_detail' %}">OFF-SIDE</a></h5>
-                                <span class="date">2021</span>
-                            </div>
-                            <div class="bottom">
-                                <ul>
-                                    <li><span class="quality">hd</span></li>
-                                    <li>
-                                        <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                        <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+            {% for movie in hvote %}
+                {% if forloop.first %}
+                    <div class="row justify-content-center">{% endif %}
+            <div class="col-xl-3 col-lg-4 col-sm-6">
+                <div class="movie-item mb-50">
+                    <div class="movie-poster">
+                        <a href="{% url 'movie_detail' movie.movie.id %}"><img style="width:100%"
+                                                                               src="{{ movie.image.url }}"
+                                                                               alt=""></a>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6">
-                    <div class="movie-item mb-50">
-                        <div class="movie-poster">
-                            <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster10.jpg' %}"
-                                                                    alt=""></a>
+                    <div class="movie-content">
+                        <div class="top">
+                            <h5 class="title"><a href="">{{ movie.movie.title }}</a></h5>
+                            <span class="date">{{ movie.movie.year_of_release }}</span>
                         </div>
-                        <div class="movie-content">
-                            <div class="top">
-                                <h5 class="title"><a href="{% url 'movie_detail' %}">Bikira Kidawa</a></h5>
-                                <span class="date">2021</span>
-                            </div>
-                            <div class="bottom">
-                                <ul>
-                                    <li><span class="quality">4k</span></li>
-                                    <li>
-                                        <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                        <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6">
-                    <div class="movie-item mb-50">
-                        <div class="movie-poster">
-                            <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster03.jpg' %}"
-                                                                    alt=""></a>
-                        </div>
-                        <div class="movie-content">
-                            <div class="top">
-                                <h5 class="title"><a href="{% url 'movie_detail' %}">Hakuna Matata</a></h5>
-                                <span class="date">2021</span>
-                            </div>
-                            <div class="bottom">
-                                <ul>
-                                    <li><span class="quality">hd</span></li>
-                                    <li>
-                                        <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                        <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-4 col-sm-6">
-                    <div class="movie-item mb-50">
-                        <div class="movie-poster">
-                            <a href="{% url 'movie_detail' %}"><img src="{% static 'img/poster/ucm_poster04.jpg' %}"
-                                                                    alt=""></a>
-                        </div>
-                        <div class="movie-content">
-                            <div class="top">
-                                <h5 class="title"><a href="{% url 'movie_detail' %}">Madame</a></h5>
-                                <span class="date">2021</span>
-                            </div>
-                            <div class="bottom">
-                                <ul>
-                                    <li><span class="quality">hd</span></li>
-                                    <li>
-                                        <span class="duration"><i class="far fa-clock"></i> 128 min</span>
-                                        <span class="rating"><i class="fas fa-thumbs-up"></i> 3.5</span>
-                                    </li>
-                                </ul>
-                            </div>
+                        <div class="bottom">
+                            <ul>
+                                <li><span class="quality">{{ movie.movie.quality }}</span></li>
+                                <li>
+                                    <span class="duration"><i class="far fa-clock"></i> 128 min</span>
+                                    <span class="rating"><i
+                                            class="fas fa-thumbs-up"></i>{{ movie.movie.view_count }}</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
+            {% if forloop.counter|divisibleby:4 %}
+                </div>
+                <div class=row>{% endif %}
+            {% if forloop.last %}</div>{% endif %}
+            {% endfor %}
         </div>
     </section>
     <!-- tv-series-area-end -->
