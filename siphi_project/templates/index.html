@@ -131,7 +131,7 @@
                                         {#                                        </li>#}
 
 
-                                        <li class="menu-item-has-children">{{ request.user.username }}</li>
+                                        <li class="menu-item-has-children"><a href="{% url 'profile' %}">{{ request.user.username }}</a></li>
                                     {% else %}
                                         <li class="header-btn"><a href="{% url 'signin' %}" class="btn">Sign In</a></li>
                                         </ul>

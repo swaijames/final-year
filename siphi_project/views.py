@@ -14,6 +14,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 import uuid
 from .forms import RateForm
 from .models import *
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 
 
 # from .forms import UserCreationForm
@@ -79,6 +81,45 @@ def signup(request):
         # context = {'form': form}
         return redirect('signin')
     return render(request, 'form/signup.html')
+
+
+def profile(request):
+    if request.method == "POST":
+        if request.POST.get('update_user') == "user_update":
+
+            firstname = request.POST.get('firstname')
+            email = request.POST.get('email')
+            lastname = request.POST.get('lastname')
+            # print("first", firstname, " email ", email, " last ", lastname)
+            User.objects.filter(id=request.user.id).update(first_name=firstname, email=email, last_name=lastname)
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('signout')
+        else:
+            if "old_password" in form.errors:
+
+                messages.error(request, "Your old password was entered incorrectly")
+                return redirect('profile')
+            elif "The two password fields didn’t match" in form.errors:
+                messages.error(request, "The two password fields didn’t match")
+                return redirect('profile')
+            else:
+                messages.error(request, "The password is too similar to the last name")
+                return redirect('profile')
+
+    movie = Movie.objects.all()[:10]
+    reviewedmovie = Movie.objects.filter(status="TR", stars__gte=3)[:10]
+    form = PasswordChangeForm(request.user)
+
+    context = {
+        "movie": movie,
+        "reviewedmovie": reviewedmovie,
+        "form": form
+    }
+    return render(request, 'profile.html', context)
 
 
 def signin(request):

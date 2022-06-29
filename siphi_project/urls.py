@@ -10,6 +10,9 @@ urlpatterns = [
     # path('Dashboard', views.Dashboard, name='Dashboard'),
     path('movie_detail/<id>/', views.movie_details, name='movie_detail'),
     path('signup', views.signup, name='signup'),
+    path('profile', views.profile, name='profile'),
+    # path('password_change/', views.change_password, name='change_password'),
+
     path('login', views.signin, name='signin'),
     path('logout', views.signout, name='signout'),
     path('password_reset_confirm/<slug:uid>/', views.change_password, name='password_reset_confirm'),
