@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'siphi_project',
+    'widget_tweaks',
     # 'hitcount',
 
 ]

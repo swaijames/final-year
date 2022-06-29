@@ -5,5 +5,7 @@ admin.site.register(Movie)
 admin.site.register(MovieImage)
 admin.site.register(Vote)
 admin.site.register(Profile)
+admin.site.site_header = 'SwahiliFlx'
+
 # admin.site.register(Genre)
 # admin.site.register(MovieGenre)
